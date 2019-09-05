@@ -1,27 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_ft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
+/*   By: artemstarshov <artemstarshov@student.42.fr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/04 18:52:53 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/04 19:29:27 by creicher         ###   ########.fr       */
+/*   Created: 2019/09/04 23:05:27 by artemstarshov     #+#    #+#             */
+/*   Updated: 2019/09/04 23:08:10 by artemstarshov    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
-
-void	ft_print_alphabet(void)
+void ft_ft(int *nbr)
 {
-	char c;
-
-	c = 'a';
-	while (c <= 'z')
-		ft_putchar(c++);
-}
-
-int main()
-{
-	ft_print_alphabet();
+	if (nbr)
+		nbr = 42
 }
