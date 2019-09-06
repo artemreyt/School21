@@ -1,17 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_point.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: creicher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 18:28:34 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/06 18:28:44 by creicher         ###   ########.fr       */
+/*   Created: 2019/09/06 17:05:27 by creicher          #+#    #+#             */
+/*   Updated: 2019/09/06 17:20:17 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_ft(int *nbr)
+#ifndef FT_POINT_H
+# define FT_POINT_H
+
+struct	s_point
 {
-	if (nbr)
-		nbr = 42;
-}
+	int x;
+	int y;
+};
+
+typedef struct s_point	t_point;
+
+#endif
