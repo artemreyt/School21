@@ -6,7 +6,7 @@
 /*   By: creicher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 18:51:29 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/06 19:04:33 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/06 19:55:08 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <stdio.h>
 
 void	ft_putchar(char c)
 {
@@ -28,10 +29,23 @@ void	ft_putstr(char *str)
 
 int main(int argc, char **argv)
 {
+	int fd, indicator;
+	char buffer[1024];
+
 	if (argc == 1)
 		ft_putstr("File name missing.\n");
 	else if (argc > 2)
 		ft_putstr("Too many arguments.\n");
 	else
 	{
-		int fd = 
+		fd = open(argv[1], O_RDONLY);
+	
+		while ((indicator = read(fd, buffer, 1023)) > 0)
+		{
+			buffer[indicator] = '\0';
+			ft_putstr(buffer);
+		}
+		close(fd);
+	}
+	return (0);
+}
