@@ -6,11 +6,11 @@
 /*   By: creicher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 18:28:34 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/06 18:28:44 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/06 20:02:01 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_ft(int *nbr)
+void	ft_ft(int *nbr)
 {
 	if (nbr)
 		nbr = 42;

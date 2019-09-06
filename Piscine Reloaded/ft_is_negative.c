@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_is_negative.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemstarshov <artemstarshov@student.42.fr>+#+  +:+       +#+        */
+/*   By: creicher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/04 18:52:53 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/04 23:04:47 by artemstarshov    ###   ########.fr       */
+/*   Created: 2019/09/06 20:02:44 by creicher          #+#    #+#             */
+/*   Updated: 2019/09/06 20:04:37 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
