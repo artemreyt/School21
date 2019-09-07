@@ -6,7 +6,7 @@
 /*   By: creicher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/07 16:49:46 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/07 16:53:27 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/07 17:32:00 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ char	*ft_strcpy(char *dst, const char *src)
 		dst[i] = src[i];
 		i++;
 	}
+	dst[i] = '\0';
 	return (dst);
 }
 
@@ -40,7 +41,7 @@ char	*ft_strdup(char *src)
 {
 	char *res;
 
-	res = (char *)malloc(sizeof(char) * ft_strlen(src));
+	res = (char *)malloc(sizeof(char) * (ft_strlen(src) + 1));
 	if (!res)
 	{
 		errno = ENOMEM;
