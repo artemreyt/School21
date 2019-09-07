@@ -1,10 +1,21 @@
-int ft_sqrt(int nb)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: creicher <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/07 16:46:04 by creicher          #+#    #+#             */
+/*   Updated: 2019/09/07 16:46:41 by creicher         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int		ft_sqrt(int nb)
 {
 	int result;
 
 	result = 0;
 	while (result * result < nb)
 		result++;
-
-	return result * result == nb ? result : 0;
+	return (result * result == nb ? result : 0);
 }

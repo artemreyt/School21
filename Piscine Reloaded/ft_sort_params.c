@@ -1,26 +1,37 @@
-void ft_putchar(char c);
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sort_params.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: creicher <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/07 16:34:07 by creicher          #+#    #+#             */
+/*   Updated: 2019/09/07 16:36:36 by creicher         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void ft_putstr(char *str)
+void	ft_putchar(char c);
+
+void	ft_putstr(char *str)
 {
 	while (*str)
 		ft_putchar(*(str++));
 }
 
-int ft_strcmp(char *s1, char *s2)
+int		ft_strcmp(char *s1, char *s2)
 {
 	while (*s1 && *s2 && *s1 == *s2)
 	{
 		s1++;
 		s2++;
 	}
-
 	return (*s1 - *s2);
 }
 
-char **ft_sort_params(char **lst, int n)
+char	**ft_sort_params(char **lst, int n)
 {
-	int i;
-	char *buf;
+	int		i;
+	char	*buf;
 
 	while (n > 1)
 	{
@@ -33,20 +44,17 @@ char **ft_sort_params(char **lst, int n)
 				lst[i] = lst[i + 1];
 				lst[i + 1] = buf;
 			}
-
 			i++;
 		}
-
 		n--;
 	}
-
-	return lst;
+	return (lst);
 }
 
-int main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
-	int i;
-	char **params;
+	int		i;
+	char	**params;
 
 	i = 0;
 	params = ft_sort_params(argv + 1, argc - 1);
@@ -55,6 +63,5 @@ int main(int argc, char **argv)
 		ft_putstr(params[i++]);
 		ft_putchar('\n');
 	}
-
 	return (0);
 }
