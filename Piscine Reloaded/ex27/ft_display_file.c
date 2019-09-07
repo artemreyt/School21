@@ -6,7 +6,7 @@
 /*   By: creicher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 18:51:29 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/06 19:55:08 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/07 16:55:02 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@ void	ft_putstr(char *str)
 		ft_putchar(*(str++));
 }
 
-int main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
-	int fd, indicator;
-	char buffer[1024];
+	int		fd;
+	int		indicator;
+	char	buffer[1024];
 
 	if (argc == 1)
 		ft_putstr("File name missing.\n");
@@ -39,7 +40,6 @@ int main(int argc, char **argv)
 	else
 	{
 		fd = open(argv[1], O_RDONLY);
-	
 		while ((indicator = read(fd, buffer, 1023)) > 0)
 		{
 			buffer[indicator] = '\0';

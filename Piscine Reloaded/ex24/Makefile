@@ -15,7 +15,7 @@ $(TARGET): $(OBJ)
 $(OBJ): $(SOURCES)
 	$(CC) -c $(SOURCES) -I $(INCLUDES)
 
-clean: $(OBJECTS)
+clean:
 	rm -rf $(OBJ)
 
 fclean: clean
