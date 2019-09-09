@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
+/*   By: artemstarshov <artemstarshov@student.42.fr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 21:45:59 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/08 23:19:04 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/09 12:23:49 by artemstarshov    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_string.h>
+#include "ft_string.h"
 
 size_t	ft_strlen(const char *s)
 {
@@ -122,46 +122,79 @@ char	*ft_strrchr(const char *s, int c)
 	return (NULL);
 }
 
+char	*ft_strstr(const char *haystack, const char *needle)
+{
+	size_t	offset;
+	size_t	pos;
+	size_t	needle_len;
+	size_t	haystack_len;
+	char	stop_symbol;
 
+	haystack_len = ft_strlen(haystack);
+	needle_len = ft_strlen(needle);
+	offset = 0;
+	while (offset + needle_len <= haystack_len)
+	{
+		pos = needle_len - 1;
+		while (pos >= 0 && needle[pos] == haystack[offset + pos])
+			pos--;
+		if (pos == -1)
+			return (haystack + offset);
+		stop_symbol = haystack[offset + pos];
+		while (pos >= 0 && needle[pos] != stop_symbol)
+		{
+			pos--;
+			offset++;
+		}
+	}
+	return (NULL);
+}
 
+char	*ft_strnstr(const char *haystack, const char *needle,
+					size_t len)
+{
+	size_t	offset;
+	size_t	pos;
+	size_t	needle_len;
+	size_t	haystack_len;
+	char	stop_symbol;
 
+	haystack_len = ft_strlen(haystack);
+	needle_len = ft_strlen(needle);
+	offset = 0;
+	while (offset + needle_len <= haystack_len && offset + needle_len <= len)
+	{
+		pos = needle_len - 1;
+		while (pos >= 0 && needle[pos] == haystack[offset + pos])
+			pos--;
+		if (pos == -1)
+			return (haystack + offset);
+		stop_symbol = haystack[offset + pos];
+		while (pos >= 0 && needle[pos] != stop_symbol)
+		{
+			pos--;
+			offset++;
+		}
+	}
+	return (NULL);
+}
 
+int		ft_strcmp(const char *s1, const char *s2)
+{
+	while (*s1 && *s2 && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	return ((unsigned char)*s1 - (unsigned char)*s2);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	while (*s1 && *s2 && *s1 == *s2 && n-- > 0)
+	{
+		s1++;
+		s2++;
+	}
+	return ((unsigned char)*s1 - (unsigned char)*s2);
+}
