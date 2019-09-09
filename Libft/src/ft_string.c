@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemstarshov <artemstarshov@student.42.fr>+#+  +:+       +#+        */
+/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 21:45:59 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/09 12:23:49 by artemstarshov    ###   ########.fr       */
+/*   Updated: 2019/09/09 20:36:40 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ char	*ft_strstr(const char *haystack, const char *needle)
 	while (offset + needle_len <= haystack_len)
 	{
 		pos = needle_len - 1;
-		while (pos >= 0 && needle[pos] == haystack[offset + pos])
+		while (pos >= 0 && needle[pos] == haystack[offset + pos ])
 			pos--;
 		if (pos == -1)
 			return (haystack + offset);
@@ -197,4 +197,21 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 		s2++;
 	}
 	return ((unsigned char)*s1 - (unsigned char)*s2);
+}
+
+void	ft_strreverse(char *str)
+{
+	size_t	str_len;
+	size_t	i;
+	char	buf;
+
+	str_len = ft_strlen(str);
+	i = 0;
+	while (i < str_len / 2)
+	{
+		buf = str[i];
+		str[i] = str[str_len - i - 1];
+		str[str_len - i - 1] = str[i]; 
+		i++;
+	}
 }

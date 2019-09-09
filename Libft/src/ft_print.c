@@ -1,25 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ctype.h                                         :+:      :+:    :+:   */
+/*   ft_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/09 12:11:04 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/09 18:38:44 by creicher         ###   ########.fr       */
+/*   Created: 2019/09/09 18:27:48 by creicher          #+#    #+#             */
+/*   Updated: 2019/09/09 20:36:43 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifdef FT_CTYPE_H
-# define FT_CTYPE_H
+#include <unistd.h>
+#include <stdlib.h>
+//#include "ft_print.h"
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_atoi(const char *str);
-int 	ft_isalnum(int c);
-int 	ft_isascii(int c);
-int 	ft_isprint(int c);
-int 	ft_toupper(int c);
-int 	ft_tolower(int c);
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
-#endif
+void 	ft_putstr(const char *str)
+{
+	while (*str)
+		ft_putchar(*str++);
+}
+void	ft_putnbr(int n)
+{
+	if (n < 0)
+	{
+		ft_putchar('-');
+		n *= -1;
+	}
+	if (n / 10)
+		ft_putnbr(n / 10);
+	ft_putchar(n % 10 + '0');
+}
+
+int main()
+{
+	ft_putchar('H');
+	ft_putstr("\nHello, world!\n");
+	ft_putnbr(-29398);
+}

@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemstarshov <artemstarshov@student.42.fr>+#+  +:+       +#+        */
+/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 21:49:14 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/09 12:23:50 by artemstarshov    ###   ########.fr       */
+/*   Updated: 2019/09/09 20:36:39 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef FT_STRING_H
+# define FT_STRING_H
 
 #include <string.h>
 
@@ -26,3 +29,6 @@ char	*ft_strnstr(const char *haystack, const char *needle,
 					size_t len);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	ft_strreverse(char *str);
+
+#endif
