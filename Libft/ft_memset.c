@@ -1,46 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.c                                         :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/09 18:27:48 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/10 20:36:58 by creicher         ###   ########.fr       */
+/*   Created: 2019/09/10 21:23:44 by creicher          #+#    #+#             */
+/*   Updated: 2019/09/10 21:23:54 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#include "ft_print.h"
-
-void	ft_putchar(char c)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	write(1, &c, 1);
-}
+	unsigned char casted;
+	unsigned char *b_casted;
 
-void 	ft_putstr(const char *str)
-{
-	while (*str)
-		ft_putchar(*str++);
-}
-
-void	ft_putnbr(size_t n)
-{
-	if (n < 0)
+	b_casted = (unsigned char *)b;
+	casted = (unsigned char)c;
+	while (len > 0)
 	{
-		ft_putchar('-');
-		n *= -1;
+		b_casted[len - 1] = casted;
+		len--;
 	}
-	if (n / 10)
-		ft_putnbr(n / 10);
-	ft_putchar(n % 10 + '0');
+	return (b);
 }
-
-/*
-int main()
-{
-	ft_putchar('H');
-	ft_putstr("\nHello, world!\n");
-	ft_putnbr(-29398);
-}
-*/

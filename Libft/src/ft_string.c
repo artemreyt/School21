@@ -6,7 +6,7 @@
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 21:45:59 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/09 20:36:40 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/10 20:31:16 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlen(const char *s)
 	size_t i;
 
 	i = 0;
-	while (*s)
+	while (s[i])
 		i++;
 	return (i);
 }
@@ -38,7 +38,7 @@ char	*ft_strcpy(char *dst, const char *src)
 
 char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	size_t i = 0;
+	size_t i;
 
 	i = 0;
 	while (i < len && src[i])
@@ -46,7 +46,8 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 		dst[i] = src[i];
 		i++;
 	}
-	dst[i] = '\0';
+	if (i < len && src[i] == '\0')
+		dst[i++] = '\0';
 	return (dst);
 }
 
@@ -93,16 +94,20 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	i = 0;
 	while (dst[i])
 		i++;
-	ft_strncat(s1 + i, src, size - i - 1);
+	ft_strncat(dst + i, src, size - i - 1);
 	return (ft_strlen(dst));
 }
 
 char	*ft_strchr(const char *s, int c)
 {
+	char casted;
+
+	casted = (char)c;
+
 	while (*s)
 	{
-		if (*s == (char)c)
-			return s;
+		if (*s == casted)
+			return ((char *)s);
 		s++;
 	}
 	return (NULL);
@@ -116,7 +121,7 @@ char	*ft_strrchr(const char *s, int c)
 	while (i > 0)
 	{
 		if (s[i] == (char)c)
-			return (s + i);
+			return ((char *)s + i);
 		i--;
 	}
 	return (NULL);
@@ -135,13 +140,13 @@ char	*ft_strstr(const char *haystack, const char *needle)
 	offset = 0;
 	while (offset + needle_len <= haystack_len)
 	{
-		pos = needle_len - 1;
-		while (pos >= 0 && needle[pos] == haystack[offset + pos ])
+		pos = needle_len;	/* because pos can't be lower than 0 */
+		while (pos > 0 && needle[pos - 1] == haystack[offset + pos - 1])
 			pos--;
-		if (pos == -1)
-			return (haystack + offset);
-		stop_symbol = haystack[offset + pos];
-		while (pos >= 0 && needle[pos] != stop_symbol)
+		if (pos == 0)
+			return ((char *)haystack + offset);
+		stop_symbol = haystack[offset + pos - 1];
+		while (pos > 0 && needle[pos] != stop_symbol)
 		{
 			pos--;
 			offset++;
@@ -164,13 +169,13 @@ char	*ft_strnstr(const char *haystack, const char *needle,
 	offset = 0;
 	while (offset + needle_len <= haystack_len && offset + needle_len <= len)
 	{
-		pos = needle_len - 1;
-		while (pos >= 0 && needle[pos] == haystack[offset + pos])
+		pos = needle_len;
+		while (pos > 0 && needle[pos - 1] == haystack[offset + pos - 1])
 			pos--;
-		if (pos == -1)
-			return (haystack + offset);
-		stop_symbol = haystack[offset + pos];
-		while (pos >= 0 && needle[pos] != stop_symbol)
+		if (pos == 0)
+			return ((char *)haystack + offset);
+		stop_symbol = haystack[offset + pos - 1];
+		while (pos > 0 && needle[pos - 1] != stop_symbol)
 		{
 			pos--;
 			offset++;
@@ -186,7 +191,7 @@ int		ft_strcmp(const char *s1, const char *s2)
 		s1++;
 		s2++;
 	}
-	return ((unsigned char)*s1 - (unsigned char)*s2);
+	return ((int)((unsigned char)*s1 - (unsigned char)*s2));
 }
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
@@ -196,22 +201,10 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 		s1++;
 		s2++;
 	}
-	return ((unsigned char)*s1 - (unsigned char)*s2);
+	return ((int)((unsigned char)*s1 - (unsigned char)*s2));
 }
 
-void	ft_strreverse(char *str)
+int		ft_strequ(char const *s1, char const *s2)
 {
-	size_t	str_len;
-	size_t	i;
-	char	buf;
-
-	str_len = ft_strlen(str);
-	i = 0;
-	while (i < str_len / 2)
-	{
-		buf = str[i];
-		str[i] = str[str_len - i - 1];
-		str[str_len - i - 1] = str[i]; 
-		i++;
-	}
+	return (ft_strcmp(s1, s2) == 0);
 }

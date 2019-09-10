@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.h                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemstarshov <artemstarshov@student.42.fr>+#+  +:+       +#+        */
+/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/09 18:24:11 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/10 12:21:12 by artemstarshov    ###   ########.fr       */
+/*   Created: 2019/09/10 20:08:30 by creicher          #+#    #+#             */
+/*   Updated: 2019/09/10 22:10:41 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINT_H
-# define FT_PRINT_H
+#include "libft.h"
 
-#include <unistd.h>
-#include <stdlib.h>
+char	*ft_strdup(const char *src)
+{
+	char *res;
 
-void	ft_putchar(char c);
-void 	ft_putstr(const char *str);
-void	ft_putnbr(size_t n);
-
-#endif
+	res = (char *)malloc(sizeof(char) * (ft_strlen(src) + 1));
+	ft_strcpy(res, src);
+	return (res);
+}

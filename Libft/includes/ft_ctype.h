@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ctype.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
+/*   By: artemstarshov <artemstarshov@student.42.fr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 12:11:04 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/09 18:38:44 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/10 10:53:04 by artemstarshov    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifdef FT_CTYPE_H
 # define FT_CTYPE_H
+
+#include <string.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

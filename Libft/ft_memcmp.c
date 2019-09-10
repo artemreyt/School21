@@ -1,46 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.c                                         :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/09 18:27:48 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/10 20:36:58 by creicher         ###   ########.fr       */
+/*   Created: 2019/09/10 21:31:58 by creicher          #+#    #+#             */
+/*   Updated: 2019/09/10 21:32:09 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#include "ft_print.h"
-
-void	ft_putchar(char c)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	write(1, &c, 1);
-}
+	unsigned char *s1_cast;
+	unsigned char *s2_cast;
 
-void 	ft_putstr(const char *str)
-{
-	while (*str)
-		ft_putchar(*str++);
-}
-
-void	ft_putnbr(size_t n)
-{
-	if (n < 0)
+	s1_cast = (unsigned char *)s1;
+	s2_cast = (unsigned char *)s2;
+	while (n > 0 && *s1_cast == *s2_cast)
 	{
-		ft_putchar('-');
-		n *= -1;
+		s1_cast++;
+		s2_cast++;
 	}
-	if (n / 10)
-		ft_putnbr(n / 10);
-	ft_putchar(n % 10 + '0');
+	return ((int)(*s1_cast - *s2_cast));
 }
-
-/*
-int main()
-{
-	ft_putchar('H');
-	ft_putstr("\nHello, world!\n");
-	ft_putnbr(-29398);
-}
-*/

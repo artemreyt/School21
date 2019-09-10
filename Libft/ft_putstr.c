@@ -1,45 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.c                                         :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemstarshov <artemstarshov@student.42.fr>+#+  +:+       +#+        */
+/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/09 18:27:48 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/10 12:22:28 by artemstarshov    ###   ########.fr       */
+/*   Created: 2019/09/10 20:36:16 by creicher          #+#    #+#             */
+/*   Updated: 2019/09/10 20:36:38 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "ft_print.h"
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+#include "libft.h"
 
 void 	ft_putstr(const char *str)
 {
 	while (*str)
 		ft_putchar(*str++);
 }
-void	ft_putnbr(size_t n)
-{
-	if (n < 0)
-	{
-		ft_putchar('-');
-		n *= -1;
-	}
-	if (n / 10)
-		ft_putnbr(n / 10);
-	ft_putchar(n % 10 + '0');
-}
-
-/*
-int main()
-{
-	ft_putchar('H');
-	ft_putstr("\nHello, world!\n");
-	ft_putnbr(-29398);
-}
-*/

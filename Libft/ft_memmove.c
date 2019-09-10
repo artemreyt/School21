@@ -1,46 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.c                                         :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/09 18:27:48 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/10 20:36:58 by creicher         ###   ########.fr       */
+/*   Created: 2019/09/10 21:27:37 by creicher          #+#    #+#             */
+/*   Updated: 2019/09/10 21:27:49 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#include "ft_print.h"
-
-void	ft_putchar(char c)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	write(1, &c, 1);
-}
+	unsigned char *dst_cast;
+	unsigned char *src_cast;
+	unsigned char *buffer;
 
-void 	ft_putstr(const char *str)
-{
-	while (*str)
-		ft_putchar(*str++);
-}
-
-void	ft_putnbr(size_t n)
-{
-	if (n < 0)
+	dst_cast = (unsigned char *)dst;
+	src_cast = (unsigned char *)src;
+	buffer = (unsigned char *)malloc(len);
+	buffer = (unsigned char *)ft_memcpy(buffer, src, len);
+	while (len > 0)
 	{
-		ft_putchar('-');
-		n *= -1;
+		dst_cast[len - 1] = buffer[len - 1];
+		len--;
 	}
-	if (n / 10)
-		ft_putnbr(n / 10);
-	ft_putchar(n % 10 + '0');
+	free(buffer);
+	return (dst);
 }
-
-/*
-int main()
-{
-	ft_putchar('H');
-	ft_putstr("\nHello, world!\n");
-	ft_putnbr(-29398);
-}
-*/

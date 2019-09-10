@@ -6,7 +6,7 @@
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 19:36:52 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/09 20:36:38 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/10 21:31:21 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	src_cast = (unsigned char *)src;
 	i = 0;
 	casted = (unsigned char)c;
-	while (i < n && (unsigned char)src[i] != casted)
+	while (i < n && (unsigned char)src_cast[i] != casted)
 	{
 		dst_cast[i] = src_cast[i];
 		i++;
@@ -80,8 +80,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	dst_cast = (unsigned char *)dst;
 	src_cast = (unsigned char *)src;
-	buffer = (unsigned char *)malloc(len)
-	buffer = (unsigned char *)ft_memcpy(buffer, src);
+	buffer = (unsigned char *)malloc(len);
+	buffer = (unsigned char *)ft_memcpy(buffer, src, len);
 	while (len > 0)
 	{
 		dst_cast[len - 1] = buffer[len - 1];
@@ -95,16 +95,16 @@ void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t			i;
 	unsigned char	casted;
-	unsigned char	*s_cast;
+	unsigned char	*str_cast;
 
 
 	i = 0;
 	casted = (unsigned char)c;
-	src_cast = (unsigned char *)s;
+	str_cast = (unsigned char *)s;
 	while (i < n)
 	{
-		if (src_cast[i] == casted)
-			return (src_cast + i);
+		if (str_cast[i] == casted)
+			return (str_cast + i);
 		i++;
 	}
 	return (NULL);
@@ -122,5 +122,5 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n)
 		s1_cast++;
 		s2_cast++;
 	}
-	return (*s1_cast - *s2_cast);
+	return ((int)(*s1_cast - *s2_cast));
 }

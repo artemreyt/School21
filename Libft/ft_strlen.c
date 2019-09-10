@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.h                                         :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemstarshov <artemstarshov@student.42.fr>+#+  +:+       +#+        */
+/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/09 18:24:11 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/10 12:21:12 by artemstarshov    ###   ########.fr       */
+/*   Created: 2019/09/10 20:03:59 by creicher          #+#    #+#             */
+/*   Updated: 2019/09/10 20:05:53 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINT_H
-# define FT_PRINT_H
+#include "libft.h"
 
-#include <unistd.h>
-#include <stdlib.h>
+size_t	ft_strlen(const char *s)
+{
+	size_t i;
 
-void	ft_putchar(char c);
-void 	ft_putstr(const char *str);
-void	ft_putnbr(size_t n);
-
-#endif
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}

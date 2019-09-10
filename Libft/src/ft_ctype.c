@@ -6,13 +6,12 @@
 /*   By: artemstarshov <artemstarshov@student.42.fr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 12:09:04 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/10 10:50:34 by artemstarshov    ###   ########.fr       */
+/*   Updated: 2019/09/10 10:53:55 by artemstarshov    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ctype.h"
 #include "ft_string.h"
-#include <string.h>
 
 int		ft_isalpha(int c)
 {
@@ -43,7 +42,7 @@ int		ft_atoi(const char *str)
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		if (value[i] == '-')
+		if (str[i] == '-')
 			is_negative = 1;
 		else
 			is_negative = 0;

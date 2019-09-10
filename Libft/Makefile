@@ -1,9 +1,8 @@
-.PHONY: all clean fclean test re
+.PHONY: all clean fclean re
 
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 TARGET = libft.a
-TEST_SRC = $(wildcard test_src/*.c)
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -20,9 +19,6 @@ clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm $(TARGET)
+	rm -f $(TARGET)
 
 re: fclean all
-
-test: $(TARGET) $(TEST_SRC)
-	$(CC) $(CFLAGS) -o test.out -L. $(TARGET) -I ./ $(TEST_SRC)
