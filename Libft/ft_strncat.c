@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 20:39:22 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/12 23:42:14 by artemstarsh      ###   ########.fr       */
+/*   Created: 2019/09/10 20:09:49 by creicher          #+#    #+#             */
+/*   Updated: 2019/09/12 22:27:54 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <ctype.h>
 
-int		ft_isalpha(int c)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	unsigned char casted;
+	unsigned int i;
 
-	casted = (unsigned char)c;
-	return ((casted >= 'A' && casted <= 'Z') || (casted >= 'a' && casted <= 'z'));
+	i = 0;
+	while (s1[i])
+		i++;
+	while (n && *s2)
+	{
+		s1[i++] = *s2++;
+		n--;
+	}
+	if (n)
+		s1[i] = '\0';
+	return (s1);
 }

@@ -2,15 +2,15 @@
 
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
-TARGET = libft.a
+NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 
-all: $(TARGET)
+all: $(NAME)
 
-$(TARGET): $(OBJ)
-	ar crs $(TARGET) $(OBJ)
+$(NAME): $(OBJ)
+	ar crs $(NAME) $(OBJ)
 
 $(OBJ): $(SRC)
 	$(CC) -c $(CFLAGS) $(SRC)
@@ -19,6 +19,6 @@ clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(TARGET)
+	rm -f $(NAME)
 
 re: fclean all

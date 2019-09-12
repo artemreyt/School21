@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 20:39:22 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/12 23:42:14 by artemstarsh      ###   ########.fr       */
+/*   Created: 2019/09/11 15:06:05 by artemstarsh       #+#    #+#             */
+/*   Updated: 2019/09/11 16:11:42 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <ctype.h>
 
-int		ft_isalpha(int c)
+char 	*ft_strtrim(char const *s)
 {
-	unsigned char casted;
-
-	casted = (unsigned char)c;
-	return ((casted >= 'A' && casted <= 'Z') || (casted >= 'a' && casted <= 'z'));
+	size_t	start;
+	size_t	end;
+	char	*whitespaces = " \t\n";
+	
+	start = 0;
+	while (ft_strchr(whitespaces, (int)s[start]))
+		start++;
+	end = ft_strlen(s) - 1;
+	while (ft_strchr(whitespaces, (int)s[end]))
+		end--;
+	return (ft_strsub(s, start, end - start + 1));
 }

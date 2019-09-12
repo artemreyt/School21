@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
+/*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 21:25:28 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/10 21:25:42 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/12 21:59:41 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned char *dst_cast;
-	unsigned char *src_cast;
-
-	dst_cast = (unsigned char *)dst;
-	src_cast = (unsigned char *)src;
-
-	while (n > 0)
+	if (src || dst)
 	{
-		dst_cast[n - 1] = src_cast[n - 1];
-		n--;
+		unsigned char *dst_cast;
+		unsigned char *src_cast;
+		
+
+		dst_cast = (unsigned char *)dst;
+		src_cast = (unsigned char *)src;
+		while (n > 0)
+		{
+			*dst_cast++ = *src_cast++;
+			n--;
+		}
 	}
 	return (dst);
 }

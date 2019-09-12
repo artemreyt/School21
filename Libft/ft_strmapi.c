@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 20:39:22 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/12 23:42:14 by artemstarsh      ###   ########.fr       */
+/*   Created: 2019/09/11 13:32:39 by artemstarsh       #+#    #+#             */
+/*   Updated: 2019/09/11 14:44:26 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <ctype.h>
 
-int		ft_isalpha(int c)
+char    *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned char casted;
+    char	*mapped;
+	
+	mapped = ft_strnew(ft_strlen(s));
+	if (mapped)
+	{
+		unsigned int i;
 
-	casted = (unsigned char)c;
-	return ((casted >= 'A' && casted <= 'Z') || (casted >= 'a' && casted <= 'z'));
+		i = 0;
+		while (s[i])
+			mapped[i] = f(i, s[i]);
+	}
+	return (mapped);
 }

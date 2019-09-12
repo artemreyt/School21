@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 20:39:22 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/12 23:42:14 by artemstarsh      ###   ########.fr       */
+/*   Created: 2019/09/11 22:55:21 by artemstarsh       #+#    #+#             */
+/*   Updated: 2019/09/11 22:56:07 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <ctype.h>
 
-int		ft_isalpha(int c)
+void	ft_putendl_fd(char const *s, int fd)
 {
-	unsigned char casted;
-
-	casted = (unsigned char)c;
-	return ((casted >= 'A' && casted <= 'Z') || (casted >= 'a' && casted <= 'z'));
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

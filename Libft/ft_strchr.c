@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
+/*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 20:12:10 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/10 20:12:35 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/12 23:00:23 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@ char	*ft_strchr(const char *s, int c)
 	char casted;
 
 	casted = (char)c;
-
 	while (*s)
 	{
 		if (*s == casted)
 			return ((char *)s);
 		s++;
 	}
-	return (NULL);
+	return (casted == *s ? (char *)s : NULL);
 }
