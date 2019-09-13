@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 20:33:59 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/13 17:24:17 by creicher         ###   ########.fr       */
+/*   Created: 2019/09/13 18:46:37 by creicher          #+#    #+#             */
+/*   Updated: 2019/09/13 19:24:03 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	unsigned char	casted;
-
-	casted = (unsigned char)c;
-	write(1, &casted, 1);
+	new->next = *alst;
+	*alst = new;
 }

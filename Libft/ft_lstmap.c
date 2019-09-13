@@ -1,21 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 20:33:59 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/13 17:24:17 by creicher         ###   ########.fr       */
+/*   Created: 2019/09/13 18:51:58 by creicher          #+#    #+#             */
+/*   Updated: 2019/09/13 20:08:00 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	ft_putchar(char c)
+/*
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	unsigned char	casted;
+	t_list	*head;
+	t_list	*current;
 
-	casted = (unsigned char)c;
-	write(1, &casted, 1);
+	head = f(lst);
+	current = head;
+	while (lst->next)
+	{
+		t_list	*new;
+
+		lst = lst->next;
+		new = f(lst);
+		if (!new)
+		{
+			ft_lstdel(&head, ft_memdel);
+			break;
+		}
+		current->next = new;
+		current = new;
+		current->next = NULL;
+	}
+	return (head);
 }
+*/

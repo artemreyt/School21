@@ -6,7 +6,7 @@
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 21:22:47 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/10 21:22:56 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/13 17:09:20 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int 	ft_tolower(int c)
 {
-	if ((unsigned char)c >= 'A' && (unsigned char)c <= 'Z')
+	if (c >= 'A' && c <= 'Z')
 		return ('a' + (c - 'A'));
 	return (c);
 }

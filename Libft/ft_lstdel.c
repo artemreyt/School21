@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 20:33:59 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/13 17:24:17 by creicher         ###   ########.fr       */
+/*   Created: 2019/09/13 18:41:29 by creicher          #+#    #+#             */
+/*   Updated: 2019/09/13 19:23:54 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	unsigned char	casted;
+	while (*alst)
+	{
+		void	*next;
 
-	casted = (unsigned char)c;
-	write(1, &casted, 1);
+		next = (*alst)->next;
+		ft_lstdelone(alst, del);
+		*alst = next;
+	}
 }

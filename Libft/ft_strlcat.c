@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemstarshov <artemstarshov@student.42.fr>+#+  +:+       +#+        */
+/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 20:10:56 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/13 11:08:26 by artemstarshov    ###   ########.fr       */
+/*   Updated: 2019/09/13 17:56:03 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,4 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	if (!is_terminated)
 		dst[size - 1] = '\0';
 	return (i);
-}
-
-int main()
-{
-	char str[20] = "hello, ";
-	//size_t len = strlcat(str, "world!", 4);
-	size_t len = ft_strlcat(str, "world!", 4);
-	ft_putendl(str);
-	ft_putnbr(len);
 }
