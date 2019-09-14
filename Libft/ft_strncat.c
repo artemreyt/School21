@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
+/*   By: artemstarshov <artemstarshov@student.42.fr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 20:09:49 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/12 22:27:54 by artemstarsh      ###   ########.fr       */
+/*   Updated: 2019/09/14 13:04:11 by artemstarshov    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ char	*ft_strncat(char *s1, const char *s2, size_t n)
 		s1[i++] = *s2++;
 		n--;
 	}
-	if (n)
-		s1[i] = '\0';
+	s1[i] = '\0';
 	return (s1);
 }

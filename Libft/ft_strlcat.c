@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
+/*   By: artemstarshov <artemstarshov@student.42.fr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 20:10:56 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/13 17:56:03 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/14 13:14:06 by artemstarshov    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 	is_terminated = 0;
 	i = dst_len = ft_strlen(dst);
-	if (dst_len > size)
+	if (dst_len >= size)
 		return (size + ft_strlen(src));
 	while (i < size)
 	{
