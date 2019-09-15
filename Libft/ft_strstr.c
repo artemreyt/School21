@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemstarshov <artemstarshov@student.42.fr>+#+  +:+       +#+        */
+/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 20:24:26 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/13 11:17:04 by artemstarshov    ###   ########.fr       */
+/*   Updated: 2019/09/15 21:35:46 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strstr(const char *haystack, const char *needle)
 	offset = 0;
 	while (offset + needle_len <= haystack_len)
 	{
-		pos = needle_len;	/* because pos can't be lower than 0 */
+		pos = needle_len;
 		while (pos > 0 && needle[pos - 1] == haystack[offset + pos - 1])
 			pos--;
 		if (pos == 0)
@@ -39,9 +39,3 @@ char	*ft_strstr(const char *haystack, const char *needle)
 	}
 	return (NULL);
 }
-
-// int main()
-// {
-// 	char *str = "hello, world myfaka";
-// 	ft_putendl(ft_strstr(str, "world"));
-// }

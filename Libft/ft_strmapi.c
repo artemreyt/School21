@@ -3,24 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemstarshov <artemstarshov@student.42.fr>+#+  +:+       +#+        */
+/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 13:32:39 by artemstarsh       #+#    #+#             */
-/*   Updated: 2019/09/13 13:20:38 by artemstarshov    ###   ########.fr       */
+/*   Updated: 2019/09/15 21:41:31 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    char	*mapped;
-	
+	char			*mapped;
+	unsigned int	i;
+
 	mapped = ft_strnew(ft_strlen(s));
 	if (mapped)
 	{
-		unsigned int i;
-
 		i = 0;
 		while (s[i])
 		{

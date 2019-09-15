@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemstarshov <artemstarshov@student.42.fr>+#+  +:+       +#+        */
+/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 23:21:14 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/13 13:19:53 by artemstarshov    ###   ########.fr       */
+/*   Updated: 2019/09/15 21:40:08 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

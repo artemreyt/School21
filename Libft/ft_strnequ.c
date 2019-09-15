@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
+/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 14:35:15 by artemstarsh       #+#    #+#             */
-/*   Updated: 2019/09/11 14:36:53 by artemstarsh      ###   ########.fr       */
+/*   Updated: 2019/09/15 21:24:13 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

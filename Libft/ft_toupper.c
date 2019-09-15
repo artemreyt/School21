@@ -6,13 +6,13 @@
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 20:55:19 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/13 17:09:39 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/15 21:37:51 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int 	ft_toupper(int c)
+int		ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		return ('A' + (c - 'a'));

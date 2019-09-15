@@ -3,26 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemstarshov <artemstarshov@student.42.fr>+#+  +:+       +#+        */
+/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 20:10:56 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/14 13:14:06 by artemstarshov    ###   ########.fr       */
+/*   Updated: 2019/09/15 22:00:08 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 	int		is_terminated;
-	size_t	dst_len;
-
 
 	is_terminated = 0;
-	i = dst_len = ft_strlen(dst);
-	if (dst_len >= size)
+	i = 0;
+	while (i < size && dst[i])
+		i++;
+	if (i == size)
 		return (size + ft_strlen(src));
 	while (i < size)
 	{
@@ -30,12 +29,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		if (*src == '\0')
 		{
 			is_terminated = 1;
-			break;
+			break ;
 		}
 		i++;
 		src++;
 	}
-
 	while (*src++)
 		i++;
 	if (!is_terminated)

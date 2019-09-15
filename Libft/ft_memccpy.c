@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
+/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 21:26:08 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/12 21:29:12 by artemstarsh      ###   ########.fr       */
+/*   Updated: 2019/09/15 21:28:44 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

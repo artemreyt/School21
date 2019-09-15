@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
+/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 16:12:35 by artemstarsh       #+#    #+#             */
-/*   Updated: 2019/09/11 17:37:45 by artemstarsh      ###   ########.fr       */
+/*   Updated: 2019/09/15 21:44:20 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static size_t		ft_count_parts(char const *s, char c)
 {
-	size_t parts;
+	size_t	parts;
 	size_t	i;
 	int		in_part;
 
@@ -58,29 +58,28 @@ static char			*next_part(char const *s, char c)
 	char	*new_part;
 	char	*end;
 	size_t	part_len;
-	
+
 	end = ft_strchr(s, c);
 	if (!end)
 		part_len = ft_strlen(s);
 	else
 		part_len = (size_t)(end - s);
 	new_part = ft_strnew(part_len);
-	
 	if (new_part)
 		ft_strncpy(new_part, s, part_len);
 	return (new_part);
 }
-char			**ft_strsplit(char const *s, char c)
+
+char				**ft_strsplit(char const *s, char c)
 {
 	size_t	parts;
 	char	**array;
-	
+	size_t	part;
+
 	parts = ft_count_parts(s, c);
 	array = (char **)ft_memalloc((parts + 1) * sizeof(*array));
 	if (array)
 	{
-		size_t	part;
-		
 		part = 0;
 		while (part < parts)
 		{
@@ -89,7 +88,7 @@ char			**ft_strsplit(char const *s, char c)
 			if (!array[part])
 			{
 				free_array(&array);
-				break;
+				break ;
 			}
 			s += ft_strlen(array[part]);
 			part++;

@@ -6,13 +6,13 @@
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 21:22:47 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/13 17:09:20 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/15 21:38:21 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int 	ft_tolower(int c)
+int		ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return ('a' + (c - 'A'));

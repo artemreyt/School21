@@ -6,19 +6,18 @@
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 20:43:14 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/13 17:01:54 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/15 21:36:38 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 int		ft_atoi(const char *str)
 {
-	int		value;
-	size_t	i;
-	char	*space_symbols = " \t\n\b\f\v\r";
-	int		is_negative;
+	int			value;
+	size_t		i;
+	const char	*space_symbols = " \t\n\b\f\v\r";
+	int			is_negative;
 
 	is_negative = 0;
 	i = 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
+/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 22:48:09 by artemstarsh       #+#    #+#             */
-/*   Updated: 2019/09/11 22:49:56 by artemstarsh      ###   ########.fr       */
+/*   Updated: 2019/09/15 21:22:14 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

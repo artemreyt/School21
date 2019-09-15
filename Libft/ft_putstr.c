@@ -6,13 +6,13 @@
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 20:36:16 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/10 20:36:38 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/15 21:45:59 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void 	ft_putstr(const char *str)
+void		ft_putstr(const char *str)
 {
 	while (*str)
 		ft_putchar(*str++);

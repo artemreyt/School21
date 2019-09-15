@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemstarshov <artemstarshov@student.42.fr>+#+  +:+       +#+        */
+/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 18:32:05 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/14 14:08:28 by artemstarshov    ###   ########.fr       */
+/*   Updated: 2019/09/15 21:47:52 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

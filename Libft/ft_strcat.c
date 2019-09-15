@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
+/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 14:58:29 by artemstarsh       #+#    #+#             */
-/*   Updated: 2019/09/12 22:12:15 by artemstarsh      ###   ########.fr       */
+/*   Updated: 2019/09/15 21:31:24 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
