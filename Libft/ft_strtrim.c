@@ -6,7 +6,7 @@
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 15:06:05 by artemstarsh       #+#    #+#             */
-/*   Updated: 2019/09/15 21:42:28 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/16 16:16:00 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char		*ft_strtrim(char const *s)
 	size_t		s_len;
 	const char	*whitespaces = " \t\n";
 
+	if (!s)
+		return (NULL);
 	start = 0;
 	s_len = ft_strlen(s);
 	if (s_len)

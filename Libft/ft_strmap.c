@@ -6,7 +6,7 @@
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 23:29:47 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/15 21:40:48 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/16 16:03:18 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	char	*mapped;
 	size_t	i;
 
+	if (!s)
+		return (NULL);
 	mapped = ft_strnew(ft_strlen(s));
 	if (mapped)
 	{

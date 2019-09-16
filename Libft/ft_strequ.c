@@ -6,7 +6,7 @@
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 20:30:56 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/10 20:31:08 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/16 16:05:06 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 int		ft_strequ(char const *s1, char const *s2)
 {
+	if (!s1 || !s2)
+		return (0);
 	return (ft_strcmp(s1, s2) == 0);
 }

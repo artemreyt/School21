@@ -6,7 +6,7 @@
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 16:12:35 by artemstarsh       #+#    #+#             */
-/*   Updated: 2019/09/15 21:44:20 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/16 16:08:45 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ char				**ft_strsplit(char const *s, char c)
 	char	**array;
 	size_t	part;
 
+	if (!s)
+		return (NULL);
 	parts = ft_count_parts(s, c);
 	array = (char **)ft_memalloc((parts + 1) * sizeof(*array));
 	if (array)

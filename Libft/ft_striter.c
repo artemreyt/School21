@@ -6,7 +6,7 @@
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 23:21:14 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/15 21:40:08 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/16 16:23:43 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_striter(char *s, void (*f)(char *))
 {
+	if (!s || !f)
+		return ;
 	while (*s)
 		f(s++);
 }
