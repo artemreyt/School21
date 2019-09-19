@@ -6,7 +6,7 @@
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 18:51:58 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/15 21:49:04 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/19 19:09:48 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,16 @@ t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list	*head;
 	t_list	*current;
-	t_list	*new;
 
+	if (!lst || !f)
+		return (NULL);
 	head = f(lst);
 	current = head;
 	while (lst->next)
 	{
 		lst = lst->next;
-		new = f(lst);
-		if (!new)
+		current->next = f(lst);
+		if (!current->next)
 		{
 			while (head)
 			{
@@ -34,8 +35,7 @@ t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 			}
 			return (NULL);
 		}
-		current->next = new;
-		current = new;
+		current = current->next;
 		current->next = NULL;
 	}
 	return (head);

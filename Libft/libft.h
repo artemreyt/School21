@@ -6,7 +6,7 @@
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 11:32:21 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/15 21:53:40 by creicher         ###   ########.fr       */
+/*   Updated: 2019/09/18 14:40:32 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,10 @@ void	ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void	ft_lstadd(t_list **alst, t_list *new);
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+t_list	*ft_lstend(t_list *lst);
+void	ft_lst_pushback(t_list *lst, void const *content, size_t size);
+size_t	ft_lstsize(t_list *lst);
+void	ft_lstinsert(t_list **lst, t_list *after, t_list *link);
+t_list	*ft_lstfind(t_list *lst, void const *content, size_t size);
 
 #endif

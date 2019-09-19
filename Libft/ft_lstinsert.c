@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lstinsert.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/13 18:32:05 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/19 19:09:43 by creicher         ###   ########.fr       */
+/*   Created: 2019/09/18 14:32:42 by creicher          #+#    #+#             */
+/*   Updated: 2019/09/18 15:01:09 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
+void	ft_lstinsert(t_list **lst, t_list *after, t_list *link)
 {
-	if (!alst || !(*alst) || !del)
+	t_list	*current;
+
+	if (!lst)
 		return ;
-	del((*alst)->content, (*alst)->content_size);
-	free(*alst);
-	*alst = NULL;
+	current = *lst;
+	while (current)
+	{
+		if (current == after)
+		{
+			if (current == *lst)
+				ft_lstadd(lst, link);
+			else
+			{
+				current = after->next;
+				after->next = link;
+				link->next = current;
+			}
+		}
+	}
 }
