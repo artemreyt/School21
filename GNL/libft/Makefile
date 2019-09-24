@@ -1,9 +1,10 @@
 .PHONY: all clean fclean re
 
-SRC = $(wildcard *.c)
-OBJ = $(SRC:.c=.o)
+SRC = $(wildcard srcs/*.c)
+OBJ = *.o
 NAME = libft.a
-CC = gcc
+CC = clang
+HEADER_DIR = includes
 CFLAGS = -Wall -Wextra -Werror
 
 
@@ -13,7 +14,7 @@ $(NAME): $(OBJ)
 	ar crs $(NAME) $(OBJ)
 
 $(OBJ): $(SRC)
-	$(CC) -c $(CFLAGS) $(SRC)
+	$(CC) -c $(CFLAGS) $(SRC) -I $(HEADER_DIR)
 
 clean:
 	rm -f $(OBJ)
