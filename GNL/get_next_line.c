@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
+/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/19 19:37:33 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/24 23:02:30 by artemstarsh      ###   ########.fr       */
+/*   Created: 2019/09/25 14:33:53 by creicher          #+#    #+#             */
+/*   Updated: 2019/09/25 14:35:37 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static char		*get_substr(t_list *fd_link)
 	}
 	return (NULL);
 }
+
 static void		delete_fd_link(t_list **files, t_list *fd_link)
 {
 	t_list	*prev;
@@ -73,12 +74,13 @@ static void		delete_fd_link(t_list **files, t_list *fd_link)
 static int		if_eof(t_list **files, t_list *fd_link, char **line)
 {
 	int		result;
+
 	if (((char *)(fd_link->content))[0] != '\0')
 	{
 		*line = ft_strdup((char *)fd_link->content);
 		result = 1;
 	}
-	else 
+	else
 		result = 0;
 	delete_fd_link(files, fd_link);
 	return (result);
@@ -95,12 +97,13 @@ int				get_next_line(const int fd, char **line)
 	if (fd < 0 || read(fd, buffer, 0) < 0)
 		return (-1);
 	fd_link = add_file_to_list(&files, fd);
-	while (!(*line = get_substr(fd_link)) && (read_result = read(fd, buffer, BUFF_SIZE)) > 0)
+	while (!(*line = get_substr(fd_link)) &&
+			(read_result = read(fd, buffer, BUFF_SIZE)) > 0)
 	{
-			buffer[read_result] = '\0';
-			tmp = (char *)fd_link->content;
-			fd_link->content = ft_strjoin(tmp, buffer);
-			free(tmp);
+		buffer[read_result] = '\0';
+		tmp = (char *)fd_link->content;
+		fd_link->content = ft_strjoin(tmp, buffer);
+		free(tmp);
 	}
 	if (*line)
 		return (1);

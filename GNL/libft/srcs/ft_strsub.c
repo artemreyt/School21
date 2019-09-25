@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
+/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/11 14:39:06 by artemstarsh       #+#    #+#             */
-/*   Updated: 2019/09/20 16:47:09 by artemstarsh      ###   ########.fr       */
+/*   Created: 2019/09/25 14:38:18 by creicher          #+#    #+#             */
+/*   Updated: 2019/09/25 14:38:22 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
