@@ -6,7 +6,7 @@
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 21:24:30 by creicher          #+#    #+#             */
-/*   Updated: 2019/09/10 21:24:44 by creicher         ###   ########.fr       */
+/*   Updated: 2019/11/13 15:56:30 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ void	ft_bzero(void *s, size_t n)
 	while (n > 0)
 	{
 		((unsigned char *)s)[n - 1] = (unsigned char)0;
-		n--;
+		--n;
 	}
 }
