@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
+/*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/30 20:26:39 by creicher          #+#    #+#             */
-/*   Updated: 2019/12/30 21:31:25 by creicher         ###   ########.fr       */
+/*   Updated: 2020/01/04 02:43:12 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
+# include "flags_handler.h"
+# include "specifier_handlers.h"
 
-# define INTEGER_SPECIFIERS "diouxX"
-# define FLOAT_SPECIFIERS "fFeEgG"
+# define INTEGER_SPECIFIERS	"diouxX"
+# define FLOAT_SPECIFIERS	"fFeEgG"
+# define CSP_SPECIFIERS		"csp"
 
 int		ft_printf(const char * restrict format, ...);
 

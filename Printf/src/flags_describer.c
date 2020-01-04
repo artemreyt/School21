@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flags_describer.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
+/*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/30 22:39:39 by creicher          #+#    #+#             */
-/*   Updated: 2019/12/30 23:03:47 by creicher         ###   ########.fr       */
+/*   Updated: 2020/01/04 02:26:43 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ flags_describer	*create_flags_describer() {
 	return (obj);
 }
 
-static void	del(void *ptr, size_t size)
+static void		del(void *ptr, size_t size)
 {
 	free(ptr);
 	(void)size;

@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+		"flags_handler.h": "c",
+		"stdarg.h": "c",
+		"ft_printf.h": "c"
+	}
+}
