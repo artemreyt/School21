@@ -6,7 +6,7 @@
 /*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 00:15:42 by artemstarsh       #+#    #+#             */
-/*   Updated: 2020/01/04 03:23:13 by artemstarsh      ###   ########.fr       */
+/*   Updated: 2020/01/06 19:34:03 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ static int		check_not_conv_flags(const char *str, flags_describer *describer) {
 		flag = MINUS_FLAG;
 	else if (ft_strncmp("0", str, 1) == 0)
 		flag = ZERO_FLAG;
+	else if (ft_strncmp(" ", str, 1) == 0)
+		flag = SPACE_FLAG;
 	else
 		return (0);
 	ft_lstadd(&describer->flags, ft_lstnew(&flag, sizeof(flag)));
@@ -80,6 +82,8 @@ flags_describer	*find_flags(char **str) {
 	int				stop;
 	int				flag_width;
 
+	//printf("IN FIND_FLAGS\n");
+	
 	describer = create_flags_describer();
 	stop = 0;
 	while (!stop) {

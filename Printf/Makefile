@@ -1,42 +1,49 @@
 INCLUDES = -I Libft -I includes
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
-MAIN_SRC = src/ft_printf.c
-SRC = $(filter-out $(MAIN_SRC), $(wildcard src/*.c))
+CFLAGS = # -Wall -Werror -Wextra
+SRC =  $(wildcard src/*.c)
+OBJ_DIR = src/obj
+SRC_DIR = src
+OBJ = $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
+
 NAME = libftprintf.a
 
-LIB_NAME = libft.a
-LIB_DIR = ./Libft
-SRC_LIB = $(wildcard $(LIB_DIR)/*.c)
-OBJ_LIB = $(SRC_LIB:.c=.o)
+LIBFT_NAME = libft.a
+LIBFT_DIR = ./Libft
+SRC_LIBFT = $(wildcard $(LIBFT_DIR)/*.c)
+OBJ_LIBFT = $(SRC_LIBFT:.c=.o)
 
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME): $(SRC) $(MAIN_SRC) $(LIB_NAME)
-	@ echo "COMPILING AND LINKING $(NAME)"
-	@ $(CC) $(CFLAGS) $(SRC) $(MAIN_SRC) -o $(NAME) $(INCLUDES) -L$(LIB_DIR) $(LIB_NAME)
+$(NAME): $(LIBFT_NAME) $(OBJ)
+	@ echo "START BUILDING $(NAME)"
+	@ ar cr $(NAME) $(OBJ)
 	@ echo "SUCCESS"
 
-$(LIB_NAME): $(OBJ_LIB)
-	@ echo "START BUILDING $(LIB_NAME)"
-	@ ar crs $(LIB_NAME) $(OBJ_LIB)
-	@ echo "$(LIB_NAME) BUILT"
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@ $(CC) -c $(CFLAGS) $(INCLUDES) $< -o $@
+	@ echo "$@ made"
 
-$(LIB_DIR)/%.o: $(LIB_DIR)/%.c
+$(LIBFT_NAME): $(OBJ_LIBFT)
+	@ echo "START BUILDING $(LIBFT_NAME)"
+	@ ar crs $(LIBFT_NAME) $(OBJ_LIBFT)
+	@ echo "$(LIBFT_NAME) BUILT"
+
+$(LIBFT_DIR)/%.o: $(LIBFT_DIR)/%.c
 	@ $(CC) -c $(CFLAGS) $< -o $@
 	@ echo "$@ made"
 
 clean:
-	@ rm -f $(OBJ_LIB)
+	@ rm -f $(OBJ_LIBFT)
+	@ rm -f $(OBJ)
 	@ echo "OBJECT FILES DELETED"
 
 fclean: clean
 	@ rm -f $(NAME)
-	@ rm -f $(TEST_TARGET)
-	rm -f $(LIB_NAME)
-	@ echo "$(NAME) $(TEST_TARGET) DELETED"
+	@ rm -f $(LIBFT_NAME)
+	@ echo "$(NAME) and $(LIBFT_NAME) DELETED"
 
 re: fclean all

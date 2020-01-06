@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
+#include "ft_printf.h"
 
 int sum(int n, ...) {
 	int result = 0;
@@ -14,9 +15,7 @@ int sum(int n, ...) {
 }
 
 int main() {
-	// printf("%20.f", 277221.4);
-	// printf("%d\n", sum(3, 2, 9, 3));
-	int res = printf("hello\0, world!");
+	int res = ft_printf("%8hhu", 255);
 	printf("\n%d\n", res);
 	return 0;
 }

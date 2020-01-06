@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/30 21:31:34 by creicher          #+#    #+#             */
-/*   Updated: 2020/01/06 22:20:17 by artemstarsh      ###   ########.fr       */
+/*   Created: 2020/01/04 21:50:47 by artemstarsh       #+#    #+#             */
+/*   Updated: 2020/01/06 21:28:48 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include "utils.h"
+#include "libft.h"
+#include "all_conversions.h"
+#include <stdio.h>
 
-# include "flags_handler.h"
-# include "all_conversions.h"
-
-int		flag_is_found(e_flags flag, const flags_describer *describer);
-char	*ft_signed_itoa(t_signed n, int plus);
-char	*ft_unsigned_itoa(t_unsigned n);
-char	*str_base2(t_unsigned number, int alternative_form);
-int		print_number_with_align(const char *str, const flags_describer *describer);
-
-#endif
+int		flag_is_found(e_flags flag, const flags_describer *describer)
+{
+	return (ft_lstfind(describer->flags, &flag, sizeof(flag)) ? 1 : 0);
+}

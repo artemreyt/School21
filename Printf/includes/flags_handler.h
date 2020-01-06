@@ -6,7 +6,7 @@
 /*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/30 22:15:49 by creicher          #+#    #+#             */
-/*   Updated: 2020/01/04 03:24:50 by artemstarsh      ###   ########.fr       */
+/*   Updated: 2020/01/06 19:34:19 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ enum e_flags {
 	l_FLAG, ll_FLAG,
 	L_FLAG, HASH_FLAG,
 	ZERO_FLAG, PLUS_FLAG,
-	MINUS_FLAG, STAR_FLAG
+	MINUS_FLAG, STAR_FLAG,
+	SPACE_FLAG
 };
 typedef			enum e_flags e_flags;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   specifier_handlers.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
+/*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/30 21:29:28 by creicher          #+#    #+#             */
-/*   Updated: 2019/12/30 21:30:53 by creicher         ###   ########.fr       */
+/*   Updated: 2020/01/06 16:41:26 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 
 # include <stdarg.h>
 
-int		specifier_handler(const char *format, va_list args_list);
-int		integer_spec_handler(const char *format, va_list args_list);
-int		float_spec_handler(const char *format, va_list args_list);
+int		specifier_handler(char **format, va_list args_list);
 
 #endif
