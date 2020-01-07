@@ -15,7 +15,6 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include "flags_handler.h"
 # include "specifier_handlers.h"
 
 # define INTEGER_SPECIFIERS	"diouxX"

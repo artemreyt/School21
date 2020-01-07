@@ -6,14 +6,14 @@
 /*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/30 22:39:39 by creicher          #+#    #+#             */
-/*   Updated: 2020/01/04 02:26:43 by artemstarsh      ###   ########.fr       */
+/*   Updated: 2020/01/07 02:28:30 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <stdlib.h>
 #include "libft.h"
-#include "flags_handler.h"
+#include "flags_describer.h"
 
 flags_describer	*create_flags_describer() {
 	flags_describer *obj;
@@ -33,5 +33,28 @@ static void		del(void *ptr, size_t size)
 
 void			destroy_flags_describer(flags_describer **obj) {
 	ft_lstdel(&(*obj)->flags, del);
+}
+
+flags_describer	*find_flags(char **str) {
+	flags_describer	*describer;
+	int				stop;
+	int				flag_width;
+	
+	describer = create_flags_describer();
+	stop = 0;
+	while (!stop) {
+		stop = 1;
+		if ((flag_width = check_not_conv_flags(*str, describer)))
+		{
+			stop = 0;
+			*str += flag_width;
+		}
+	}
+	if ((flag_width = check_width_precision(*str, describer)))
+		*str += flag_width;
+	if ((flag_width = check_num_conv_flags(*str, describer)))
+		*str += flag_width;
+	describer->specifier = *(*str++);
+	return (describer);
 }
 

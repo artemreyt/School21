@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_base2.c                                        :+:      :+:    :+:   */
+/*   print_format.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/06 22:16:08 by artemstarsh       #+#    #+#             */
-/*   Updated: 2020/01/06 22:24:19 by artemstarsh      ###   ########.fr       */
+/*   Created: 2020/01/07 02:22:45 by artemstarsh       #+#    #+#             */
+/*   Updated: 2020/01/07 02:39:23 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "all_conversions.h"
+#ifndef PRINT_FORMAT_H
+# define PRINT_FORMAT_H
 
-char	*str_base2(t_unsigned number, int alternative_form)
-{
-	return (NULL);
-}
+# include "flags_describer.h"
 
+int			print_decimal(const char *str, const flags_describer *describer);
+int			print_bases(const char *str, const flags_describer *describer);
+
+#endif

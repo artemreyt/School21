@@ -6,14 +6,14 @@
 /*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 19:38:54 by artemstarsh       #+#    #+#             */
-/*   Updated: 2020/01/06 22:15:11 by artemstarsh      ###   ########.fr       */
+/*   Updated: 2020/01/07 00:54:33 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 #include "libft.h"
 
-static t_signed	count_digits(int n)
+static t_signed	count_digits(t_signed n)
 {
 	t_signed count;
 

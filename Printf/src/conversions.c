@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   numeric_conversions.c                              :+:      :+:    :+:   */
+/*   conversions.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 21:41:22 by artemstarsh       #+#    #+#             */
-/*   Updated: 2020/01/06 22:22:55 by artemstarsh      ###   ########.fr       */
+/*   Updated: 2020/01/07 02:38:11 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "all_conversions.h"
+#include "conversions.h"
 #include "utils.h"
 #include <stdio.h>
 
-char	*di_conversion(va_list args_list, const flags_describer *describer)
+char	*signed_conversion(va_list args_list, const flags_describer *describer)
 {
 	t_signed	number;
 	char		*str;
@@ -34,12 +34,11 @@ char	*di_conversion(va_list args_list, const flags_describer *describer)
 	return (str);
 }
 
-char	*ouxX_conversion(const char specifier, va_list args_list,
-						const flags_describer *describer)
+char	*unsigned_conversion(va_list args_list, const flags_describer *describer)
 {
 	t_signed	number;
 	char		*str;
-	
+
 	if (flag_is_found(hh_FLAG, describer))
 		number = (t_unsigned)((unsigned char)va_arg(args_list, unsigned int));
 	else if (flag_is_found(h_FLAG, describer))
@@ -50,10 +49,10 @@ char	*ouxX_conversion(const char specifier, va_list args_list,
 		number = (t_unsigned)va_arg(args_list, unsigned long long);
 	else 
 		number = (t_unsigned)va_arg(args_list, unsigned int);
-	if (specifier == 'u')
+	if (describer->specifier == 'u')
 		str = ft_unsigned_itoa(number);
 	else
-		str = str_base2(number, flag_is_found(HASH_FLAG, describer));
+		str = get_str_base2(number, describer->specifier);
 	return (str);
 }
 

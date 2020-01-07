@@ -6,7 +6,7 @@
 /*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/30 19:21:06 by creicher          #+#    #+#             */
-/*   Updated: 2020/01/06 16:44:20 by artemstarsh      ###   ########.fr       */
+/*   Updated: 2020/01/07 00:46:35 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int		ft_printf(const char *restrict format, ...) {
 	retv = 0;
 	while (*end) {
 		if (*end == '%') {
-			//printf("\nFOUND %%\n");
 			end++;
 			if ((buf2 = specifier_handler(&end, args_list)) < 0) {
 				va_end(args_list);

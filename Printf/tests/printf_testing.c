@@ -15,7 +15,7 @@ int sum(int n, ...) {
 }
 
 int main() {
-	int res = ft_printf("%8hhu", 255);
-	printf("\n%d\n", res);
+	ft_printf("%#.4x", 39);
+	// printf("%#.4x", 39);
 	return 0;
 }
