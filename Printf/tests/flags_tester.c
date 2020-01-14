@@ -6,11 +6,11 @@
 /*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/04 02:44:05 by artemstarsh       #+#    #+#             */
-/*   Updated: 2020/01/06 22:34:40 by artemstarsh      ###   ########.fr       */
+/*   Updated: 2020/01/14 03:12:35 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "flags_handler.h"
+#include "flags_describer.h"
 #include "libft.h"
 #include <stdio.h>
 

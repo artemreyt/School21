@@ -6,7 +6,7 @@
 /*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 21:27:58 by artemstarsh       #+#    #+#             */
-/*   Updated: 2020/01/07 02:54:30 by artemstarsh      ###   ########.fr       */
+/*   Updated: 2020/01/14 03:08:28 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,18 @@ static void	print_left_or_right(const char *str, int width, int len, char fill_c
 
 	if (describer->precision.found && describer->precision.value > len)
 		num_of_zeros = describer->precision.value - ft_strlen(str);
-	space_flag_is_found = flag_is_found(SPACE_FLAG, describer) &&
-							describer->specifier != 'u';
-	if (width > len && flag_is_found(MINUS_FLAG, describer))
-	{
-		if (space_flag_is_found)
-			ft_putchar(' ');
-		print_few_times('0', num_of_zeros);
-		ft_putstr(str);
-		print_few_times(fill_char, (size_t)width - len);
-	}
 	else
-	{
-		if (width > len)
-			print_few_times(fill_char, (size_t)width - len);
-		if (space_flag_is_found)
-			ft_putchar(' ');
-		print_few_times('0', num_of_zeros);
-		ft_putstr(str);
-	}
+		num_of_zeros = 0;
+	space_flag_is_found = flag_is_found(SPACE_FLAG, describer) &&
+					describer->specifier != 'u' && str[0] != '-';
+	if (width > len && !flag_is_found(MINUS_FLAG, describer))
+		print_few_times(fill_char, (size_t)width - len);
+	if (space_flag_is_found)
+		ft_putchar(' ');
+	print_few_times('0', num_of_zeros);
+	ft_putstr(str);
+	if (width > len && flag_is_found(MINUS_FLAG, describer))
+		print_few_times(fill_char, (size_t)width - len);
 }
 
 int			print_decimal(const char *str, const flags_describer *describer)
@@ -65,7 +58,8 @@ int			print_decimal(const char *str, const flags_describer *describer)
 	len = ft_strlen(str);
 	if (describer->precision.found && describer->precision.value > len)
 		len += describer->precision.value - len;
-	if (flag_is_found(SPACE_FLAG, describer) && describer->specifier != 'u')
+	if (flag_is_found(SPACE_FLAG, describer) && describer->specifier != 'u' &&
+			str[0] != '-')
 		len++;
 	retv = len + (width > len ? width - len : 0);
 	print_left_or_right(str, width, len, fill_char, describer);

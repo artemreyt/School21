@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include "ft_printf.h"
+#include <limits.h>
 
 int sum(int n, ...) {
 	int result = 0;
@@ -15,7 +16,9 @@ int sum(int n, ...) {
 }
 
 int main() {
-	ft_printf("%#.4x", 39);
-	// printf("%#.4x", 39);
+	// ft_printf("%-010dend\n", 332429);
+	long double ld = -123.499923434;
+	ft_printf("%# -23.10Lff\n", ld);
+	printf("%# -23.10Lff\n", ld);
 	return 0;
 }

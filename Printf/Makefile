@@ -38,7 +38,7 @@ $(LIBFT_DIR)/%.o: $(LIBFT_DIR)/%.c
 
 clean:
 	@ rm -f $(OBJ_LIBFT)
-	@ rm -f $(OBJ)
+	@ rm -f $(OBJ_DIR)/*
 	@ echo "OBJECT FILES DELETED"
 
 fclean: clean

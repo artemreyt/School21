@@ -6,7 +6,7 @@
 /*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 02:22:45 by artemstarsh       #+#    #+#             */
-/*   Updated: 2020/01/07 02:39:23 by artemstarsh      ###   ########.fr       */
+/*   Updated: 2020/01/14 03:11:54 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,6 @@
 
 int			print_decimal(const char *str, const flags_describer *describer);
 int			print_bases(const char *str, const flags_describer *describer);
+int			print_float(const char *str, const flags_describer *describer);
 
 #endif
