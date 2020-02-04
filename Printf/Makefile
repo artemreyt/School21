@@ -20,7 +20,7 @@ all: $(NAME)
 
 $(NAME): $(LIBFT_NAME) $(OBJ)
 	@ echo "START BUILDING $(NAME)"
-	@ ar cr $(NAME) $(OBJ)
+	@ ar cr $(NAME) $(OBJ) $(OBJ_LIBFT)
 	@ echo "SUCCESS"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c

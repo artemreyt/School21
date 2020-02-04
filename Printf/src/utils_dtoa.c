@@ -6,7 +6,7 @@
 /*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 18:28:40 by artemstarsh       #+#    #+#             */
-/*   Updated: 2020/01/15 02:38:57 by artemstarsh      ###   ########.fr       */
+/*   Updated: 2020/01/15 17:30:21 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,15 @@ char	*check_zero_inf_nan(t_float number, int precision)
 
 	if (number == 0.0)
 	{
-		len = 2;
-		if (IS_MINUS_INF(number))
+		len = 1;
+		if (IS_MINUS_ZERO(number))
 			len++;
 		str = (char *)ft_memalloc(len + 1);
-		ft_strcpy(str, (IS_MINUS_INF(number) ? "-0" : "0"));
+		ft_strcpy(str, (IS_MINUS_ZERO(number) ? "-0" : "0"));
 		if (precision > 0)
 		{
-			append_few_letters(str, '.', 1);
-			append_few_letters(str, '0', precision);
+			str = append_few_letters(str, '.', 1);
+			str = append_few_letters(str, '0', precision);
 		}
 		return (str);
 	}

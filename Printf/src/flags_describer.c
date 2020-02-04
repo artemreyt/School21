@@ -6,7 +6,7 @@
 /*   By: artemstarshov <artemstarshov@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/30 22:39:39 by creicher          #+#    #+#             */
-/*   Updated: 2020/01/07 02:28:30 by artemstarsh      ###   ########.fr       */
+/*   Updated: 2020/01/16 03:11:59 by artemstarsh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ flags_describer	*create_flags_describer() {
 	obj->flags = NULL;
 	obj->precision.found = 0;
 	obj->width = 0;
+	obj->specifier = '@';
 	return (obj);
 }
 
@@ -39,10 +40,10 @@ flags_describer	*find_flags(char **str) {
 	flags_describer	*describer;
 	int				stop;
 	int				flag_width;
-	
+
 	describer = create_flags_describer();
 	stop = 0;
-	while (!stop) {
+	while (**str && !stop) {
 		stop = 1;
 		if ((flag_width = check_not_conv_flags(*str, describer)))
 		{
@@ -50,11 +51,12 @@ flags_describer	*find_flags(char **str) {
 			*str += flag_width;
 		}
 	}
-	if ((flag_width = check_width_precision(*str, describer)))
+	if (**str && (flag_width = check_width_precision(*str, describer)))
 		*str += flag_width;
-	if ((flag_width = check_num_conv_flags(*str, describer)))
+	if (**str && (flag_width = check_num_conv_flags(*str, describer)))
 		*str += flag_width;
-	describer->specifier = *(*str++);
+	if (**str)
+		describer->specifier = *(*str++);
 	return (describer);
 }
 

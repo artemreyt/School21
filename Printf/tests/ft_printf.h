@@ -19,7 +19,7 @@
 
 # define INTEGER_SPECIFIERS	"diouxX"
 # define FLOAT_SPECIFIERS	"fFeEgG"
-# define CSP_SPECIFIERS		"csp"
+# define CSP_SPECIFIERS		"csp%"
 
 int		ft_printf(const char * restrict format, ...);
 
