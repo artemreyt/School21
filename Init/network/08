@@ -1,0 +1,5 @@
+# 08. Find the provider of slash16.org
+
+Amazon Web Services(AWS)
+
+# host slash16.org | head -1 | awk '{print $4}' | xargs whois | grep "OrgNOCName"
