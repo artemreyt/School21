@@ -1,1 +1,5 @@
 # 13. Thanks to the previous question and the reverse DNS find the name of your host
+
+il-k6.21-school.ru.
+
+# ./12 | xargs nslookup | grep "name =" | awk '{print $4}'

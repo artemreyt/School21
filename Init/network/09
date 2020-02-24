@@ -1,6 +1,7 @@
 # 09. Find the external IP of 42.fr
 
 # host 42.fr | grep "has address" | awk '{print $4}'
+# dig 42.fr +short
 
 163.172.250.12
 163.172.250.13
