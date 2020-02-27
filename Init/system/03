@@ -1,0 +1,4 @@
+# 3. What file has to be modified to make it permanent?
+# (name of system)
+
+/etc/hostname

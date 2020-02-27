@@ -1,0 +1,5 @@
+# 24. Find the command that list all packages
+
+dpkg -l
+
+# apt list --installed

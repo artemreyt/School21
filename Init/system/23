@@ -1,0 +1,21 @@
+# 23. Explain how connect yourself as new user. (With graphic session and ssh session)
+
+To connect via ssh we need to type '$ ssh -X user@server_ip'
+Insert password and done.
+We can connect with no using password:
+$ ssh-keygen -t rsa
+$ ssh-copy-id server_ip
+Now we will connect via pair RSA keys.
+
+To install graphic session (to be able to display server's apps on our host):
+
+On server set in /etc/ssh/sshd_config:
+X11Forwarding yes
+
+On local set in /etc/ssh/ssh_config:
+ForwardX11 yes
+
+If you are on Mac install Xquartz utility, run it, logout and login.
+
+After that you can open any apps such as xclock, vscode, atril, etc.
+and they will be displayed like on your machine.

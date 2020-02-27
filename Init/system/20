@@ -1,0 +1,4 @@
+# 20. List all existing users on the VM
+
+cut --delimiter=':' --fields=1 /etc/passwd
+

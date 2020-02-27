@@ -1,0 +1,13 @@
+# 16. Find the service which makes it possible to run specific tasks following a regular
+# schedule
+
+cron
+
+# example:
+
+# typing in terminal: $ crontab -e
+# next -> insert via selected editor in the end of document:
+# */2 * * * * date >> $HOME/example_cron.txt
+
+# after every 2 minutes if file '$HOME/example_cron.txt'
+# will be added current data at moment of adding

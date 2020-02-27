@@ -1,0 +1,10 @@
+# 7. Figure out the PID of the SSHD service.
+
+service ssh status | grep "Main PID:" | awk '{print $3}'
+
+
+# below commands will show all PIDs which are used by sshd
+
+# pidof sshd
+# pgrep sshd
+# ps ax | grep "sshd" | grep -v "grep" | awk {'print $1}'
