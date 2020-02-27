@@ -1,0 +1,22 @@
+#!/bin/bash
+# 2. Write a script which delete an ACTIVE user on the VM.
+
+USER=$1
+ARGC=$#
+EXP_ARGC=1
+
+
+if (($ARGC != $EXP_ARGC))
+then
+    echo "usage: $0 active_user"
+    exit 1
+fi
+
+if ! who | awk '{print $1}' | grep -w $USER -q
+then
+    echo "$USER wasn't not found in ACTIVE users"
+    exit 2
+else
+    pkill -u $USER
+    userdel --remove $USER
+fi
