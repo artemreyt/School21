@@ -18,5 +18,5 @@ then
     exit 2
 else
     pkill -u $USER
-    userdel --remove $USER
+    userdel --remove-home $USER
 fi
