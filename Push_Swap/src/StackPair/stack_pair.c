@@ -31,7 +31,7 @@ void			stack_pair_init(t_stack_pair *sp, int log_fd)
 		sp->log_fd = log_fd;
 }
 
-t_stack_pair	*stack_pair_сreate(int *arr, size_t n, int log_fd)
+t_stack_pair	*stack_pair_create(int *arr, size_t n, int log_fd)
 {
 	t_stack_pair	*sp;
 

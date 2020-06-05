@@ -21,7 +21,7 @@ void		launch_push_swap(int *arr, int n)
 	t_stack_pair	*sp;
 	t_chunk_info	chunk_info;
 
-	sp = stack_pair_сreate(arr, n, STDOUT_FILENO);
+	sp = stack_pair_create(arr, n, STDOUT_FILENO);
 	radix_sort(arr, n);
 	chunk_info.start_index = 0;
 	chunk_info.length = n;

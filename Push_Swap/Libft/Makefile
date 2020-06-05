@@ -14,7 +14,7 @@ PRINTF_OBJ = $(addprefix $(PRINTF_OBJ_DIR)/, $(notdir $(PRINTF_SRC:.c=.o)))
 
 NAME = libft.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Wno-unused-result -Werror
 INCLUDES = -I printf_includes -I ./
 OPTMIZATION_FLAGS = -O2 -funroll-loops
 

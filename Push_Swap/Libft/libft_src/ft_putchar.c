@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+int ft_putchar(char c)
 {
 	unsigned char	casted;
 
 	casted = (unsigned char)c;
-	write(1, &casted, 1);
+	return (write(1, &casted, 1));
 }

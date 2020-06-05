@@ -27,6 +27,6 @@ int	main(int argc, char **argv)
 	else if (ret_code == ERROR_CODE)
 		ft_putendl(ERROR_MSG);
 	else
-		ft_putendl("INKNOWN RETURN CODE");
+		ft_putendl("UNKNOWN RETURN CODE");
 	return (ret_code);
 }

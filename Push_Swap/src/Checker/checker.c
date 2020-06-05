@@ -52,7 +52,7 @@ static int	checker(t_stack_pair *sp, int size, int fd)
 {
 	char *cmd;
 
-	fd = 0;
+	fd++;
 	while (get_next_line(STDIN_FILENO, &cmd) > 0)
 	{
 		if (!execute_command(sp, cmd))
@@ -78,7 +78,7 @@ int			launch_checker(int argc, char **argv)
 		retv = ERROR_CODE;
 	else
 	{
-		sp = stack_pair_сreate(arr, size, -1);
+		sp = stack_pair_create(arr, size, -1);
 		retv = checker(sp, argc - 1, STDIN_FILENO);
 		stack_pair_free(&sp);
 		free(arr);

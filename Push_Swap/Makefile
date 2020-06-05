@@ -72,7 +72,7 @@ all: $(CHECKER_EXEC_NAME) $(PUSH_SWAP_EXEC_NAME)
 
 # -------------- Checker targets ---------------- #
 
-$(CHECKER_EXEC_NAME): $(LIBS_DIR)/$(CHECKER_LIB_NAME) $(LIBS_DIR)/$(STACK_PAIR_LIB_NAME) $(CHECKER_EXEC_OBJ) $(LIBS_DIR)/$(LIBFT_NAME)
+$(CHECKER_EXEC_NAME): $(CHECKER_EXEC_OBJ) $(LIBS_DIR)/$(CHECKER_LIB_NAME) $(LIBS_DIR)/$(STACK_PAIR_LIB_NAME) $(LIBS_DIR)/$(LIBFT_NAME)
 	@ make "Building $@".prepare_msg
 	$(CC) $(CFLAGS) $^ -o $@
 	@ make "Executable $@ built".success_msg
