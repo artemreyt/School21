@@ -4,8 +4,9 @@ project(ft)
 
 aux_source_directory(printf_src PRINTF_SRC)
 aux_source_directory(libft_src LIBFT_SRC)
+aux_source_directory(algorithms_src ALGORITHM_SRC)
 
-add_library(ft "${LIBFT_SRC}" "${PRINTF_SRC}")
+add_library(ft "${LIBFT_SRC}" "${PRINTF_SRC}" "${ALGORITHM_SRC}")
 
 target_include_directories(ft PUBLIC ./)
 target_include_directories(ft PRIVATE printf_includes)
