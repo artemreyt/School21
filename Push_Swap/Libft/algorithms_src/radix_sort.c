@@ -1,4 +1,4 @@
-#include "algorithms.h"
+#include "ft_algorithms.h"
 #include "libft.h"
 #include <stdlib.h>
 
@@ -56,7 +56,14 @@ static union Int32  *count_sort(union Int32 *arr, int n, int byte)
 
 void                radix_sort(int *arr, int n)
 {
-    int byte = 0;
+    int byte;
+    int *arr_copy;
+
+    arr_copy = (int *)malloc(n * sizeof(*arr));
+    ft_memcpy(arr_copy, arr, n * sizeof(*arr));
+    byte = 0;
     while (byte < 4)
-        arr = (int *)count_sort((union Int32 *)arr, n, byte++);
+        arr_copy = (int *)count_sort((union Int32 *)arr_copy, n, byte++);
+    ft_memcpy(arr, arr_copy, n * sizeof(*arr));
+    free(arr_copy);
 }

@@ -1,4 +1,4 @@
-#include "algorithms.h"
+#include "ft_algorithms.h"
 
 void    selection_sort(int *arr, int n)
 {

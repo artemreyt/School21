@@ -22,6 +22,9 @@ void        stackPairInit(StackPair *sp, int log_fd);
 StackPair   *stackPairCreate(int *arr, size_t n, int log_fd);
 void        stackPairLog(StackPair *sp, const char *msg);
 
+int         stackPairPeek_a(StackPair *sp, int *res);
+int         stackPairPeek_b(StackPair *sp, int *res);
+
 void    sa_cmd(StackPair *sp);
 void    sb_cmd(StackPair *sp);
 void    ss_cmd(StackPair *sp);

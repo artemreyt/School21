@@ -1,4 +1,4 @@
-#include "algorithms.h"
+#include "ft_algorithms.h"
 #include <stdlib.h>
 
 static void swap(int *a, int *b)

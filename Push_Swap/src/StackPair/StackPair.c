@@ -24,17 +24,13 @@ void    stackPairInit(StackPair *sp, int log_fd)
 StackPair   *stackPairCreate(int *arr, size_t n,  int log_fd)
 {
     StackPair   *sp;
-    size_t      i;
 
     sp = (StackPair *)malloc(sizeof(*sp));
     if (!sp)
         return (NULL);
     stackPairInit(sp, log_fd);
-
-    i = 0;
-    while (i < n)
-        intStackPush(sp->stack_a, arr[i++]);
-
+    while (n)
+        intStackPush(sp->stack_a, arr[--n]);
     return (sp);
 }
 
@@ -43,4 +39,3 @@ void        stackPairLog(StackPair *sp, const char *msg)
     if (sp->log_fd >= 0)
         ft_putendl_fd(msg, sp->log_fd);
 }
-
