@@ -57,11 +57,6 @@ int     intStackPop(IntStack *stack, int *pop_value)
     return (1);
 }
 
-int     intStackGetSize(IntStack *stack)
-{
-    return (stack->size);
-}
-
 int     intStackPeek(IntStack *stack, int *value)
 {
     if (!stack || !stack->size)
@@ -71,5 +66,9 @@ int     intStackPeek(IntStack *stack, int *value)
     return (1);
 }
 
-
+void        intStackFree(IntStack *stack)
+{
+    while (stack->size)
+        intStackPop(stack, NULL);
+}
 

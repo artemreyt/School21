@@ -34,6 +34,14 @@ StackPair   *stackPairCreate(int *arr, size_t n,  int log_fd)
     return (sp);
 }
 
+void        stackPairFree(StackPair *sp)
+{
+    intStackFree(sp->stack_a);
+    intStackFree(sp->stack_b);
+    free(sp->stack_a);
+    free(sp->stack_b);
+}
+
 void        stackPairLog(StackPair *sp, const char *msg)
 {
     if (sp->log_fd >= 0)

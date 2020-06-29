@@ -17,7 +17,7 @@ void        intStackInit(IntStack *stack);
 void        intStackPush(IntStack *stack, int value);
 int         intStackPop(IntStack *stack, int *pop_value);
 int         intStackPeek(IntStack *stack, int *value);
-inline int  intStackGetSize(IntStack *stack);
+void        intStackFree(IntStack *stack);
 
 /*
  * Special extensions for project Push_Swap
@@ -26,6 +26,7 @@ int         intStackShiftUp(IntStack *stack);
 int         intStackShiftDown(IntStack *stack);
 int         intStackSwap(IntStack *stack);
 int         intStackPeekFew(IntStack *stack, int *buffer, int n);
+int         intStackCheckOrder(IntStack *stack, int n, int ascending);
 
 
 

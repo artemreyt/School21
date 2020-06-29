@@ -48,3 +48,20 @@ int    intStackPeekFew(IntStack *stack, int *buffer, int n)
     return (1);
 }
 
+int         intStackCheckOrder(IntStack *stack, int n, int ascending)
+{
+    IntNode_t *current;
+
+    if (n < 0 || stack->size < n)
+        return (-1);
+    current = stack->head;
+    while (n-- > 1)
+    {
+        if ((ascending && current->value > current->next->value) ||
+                (!ascending && current->value < current->next->value))
+            return (0);
+        current = current->next;
+    }
+    return (1);
+}
+

@@ -16,4 +16,10 @@ void    push_swap(StackPair *sp, int *arr, t_ChunkInfo *chunk_info);
 void    push_swap_partition(StackPair *sp, const int *arr, t_ChunkInfo *chunk_info);
 void    push_swap_sort(StackPair *sp, int *arr, t_ChunkInfo *chunk_info);
 
+/*
+ * optimization part
+ */
+//void    push_swap_move_chunk(StackPair *sp, t_ChunkInfo *chunk);
+
+
 #endif

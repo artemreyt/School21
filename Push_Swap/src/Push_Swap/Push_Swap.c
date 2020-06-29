@@ -14,6 +14,7 @@ void        launch_push_swap(int *arr, int n)
     chunkInfo.length = n;
     chunkInfo.side = A_STACK;
     push_swap(sp, arr, &chunkInfo);
+    stackPairFree(sp);
 }
 
 static void init_chunks(t_ChunkInfo *current, t_ChunkInfo *left, t_ChunkInfo *right)
@@ -26,11 +27,34 @@ static void init_chunks(t_ChunkInfo *current, t_ChunkInfo *left, t_ChunkInfo *ri
     left->side = B_STACK;
 }
 
+static void push_swap_move_chunk(StackPair *sp, t_ChunkInfo *chunk)
+{
+    int     i;
+
+    if (chunk->side == A_STACK)
+        return ;
+    i = 0;
+    while (i < chunk->length)
+    {
+        pa_cmd(sp);
+        ++i;
+    }
+}
+
 void        push_swap(StackPair *sp, int *arr, t_ChunkInfo *chunk)
 {
     t_ChunkInfo left_chunk;
     t_ChunkInfo right_chunk;
+    int         res;
 
+    res = stackPairCheckOrder(sp, chunk->side, chunk->length);
+    if (res > 0)
+    {
+        push_swap_move_chunk(sp, chunk);
+        return ;
+    }
+    else if (res < 0)
+        exit(EXIT_FAILURE);
     if (chunk->length <= 2)
         push_swap_sort(sp, arr, chunk);
     else

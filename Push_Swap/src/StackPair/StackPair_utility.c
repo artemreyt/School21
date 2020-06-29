@@ -28,3 +28,15 @@ int         stackPairSwap(StackPair *sp, e_StackSide side)
         res = sb_cmd(sp);
     return (res);
 }
+
+int         stackPairCheckOrder(StackPair *sp, e_StackSide side, int n)
+{
+    int ascending;
+
+    if (side == A_STACK)
+        ascending = 1;
+    else
+        ascending = 0;
+    return intStackCheckOrder(get_stack(sp, side), n, ascending);
+}
+

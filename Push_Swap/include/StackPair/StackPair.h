@@ -25,11 +25,13 @@ typedef enum e_StackSide    e_StackSide;
  */
 void        stackPairInit(StackPair *sp, int log_fd);
 StackPair   *stackPairCreate(int *arr, size_t n, int log_fd);
+void        stackPairFree(StackPair *sp);
 void        stackPairLog(StackPair *sp, const char *msg);
 
 int         stackPairPeek(StackPair *sp, e_StackSide side, int *res);
 int         stackPairPeekFew(StackPair *sp, e_StackSide side, int *buffer, int n);
 int         stackPairSwap(StackPair *sp, e_StackSide side);
+int         stackPairCheckOrder(StackPair *sp, e_StackSide side, int n);
 
 int     sa_cmd(StackPair *sp);
 int     sb_cmd(StackPair *sp);
