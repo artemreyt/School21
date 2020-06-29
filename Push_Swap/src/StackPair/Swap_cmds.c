@@ -1,20 +1,32 @@
 #include "StackPair.h"
 #include "IntStack.h"
 
-void    sa_cmd(StackPair *sp)
+int    sa_cmd(StackPair *sp)
 {
-    if (intStackSwap(sp->stack_a))
-        stackPairLog(sp, SA_MSG);
-}
+    int res;
 
-void    sb_cmd(StackPair *sp)
-{
-    if (intStackSwap(sp->stack_a))
+    res = intStackSwap(sp->stack_a);
+    if (res)
         stackPairLog(sp, SB_MSG);
+    return (res);
 }
 
-void    ss_cmd(StackPair *sp)
+int    sb_cmd(StackPair *sp)
+{
+    int res;
+
+    res = intStackSwap(sp->stack_b);
+    if (res)
+        stackPairLog(sp, SB_MSG);
+    return (res);
+}
+
+int    ss_cmd(StackPair *sp)
 {
     if (intStackSwap(sp->stack_a) || intStackSwap(sp->stack_b))
+    {
         stackPairLog(sp, SS_MSG);
+        return (1);
+    }
+    return (0);
 }

@@ -46,7 +46,7 @@ int     intStackPop(IntStack *stack, int *pop_value)
     if (pop_value)
         *pop_value = old_head->value;
     stack->head = stack->head->next;
-    stack->tail = stack->head;
+    stack->tail->next = stack->head;
     stack->head->prev = stack->tail;
     free(old_head);
     if (--stack->size == 0)

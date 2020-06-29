@@ -19,11 +19,11 @@ void        launch_push_swap(int *arr, int n)
 static void init_chunks(t_ChunkInfo *current, t_ChunkInfo *left, t_ChunkInfo *right)
 {
     right->start_index = current->start_index + current->length / 2;
-    right->length = (current->length + 1) / 2;
-    right->side = B_STACK;
+    right->length = current->length + current->start_index - right->start_index;
+    right->side = A_STACK;
     left->start_index = current->start_index;
     left->length = current->length - right->length;
-    left->side = A_STACK;
+    left->side = B_STACK;
 }
 
 void        push_swap(StackPair *sp, int *arr, t_ChunkInfo *chunk)

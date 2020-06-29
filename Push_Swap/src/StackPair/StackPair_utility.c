@@ -20,5 +20,11 @@ int         stackPairPeekFew(StackPair *sp, e_StackSide side, int *buffer, int n
 
 int         stackPairSwap(StackPair *sp, e_StackSide side)
 {
-    return intStackSwap(get_stack(sp, side));
+    int res;
+
+    if (side == A_STACK)
+        res = sa_cmd(sp);
+    else
+        res = sb_cmd(sp);
+    return (res);
 }

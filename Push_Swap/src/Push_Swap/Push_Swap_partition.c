@@ -15,7 +15,7 @@ static int  get_number(StackPair *sp, e_StackSide side)
 static int  compare(int number, int pivot, e_StackSide side)
 {
     if (side == A_STACK)
-        return number <= pivot;
+        return number < pivot;
     return number >= pivot;
 }
 
@@ -48,7 +48,8 @@ void        push_swap_partition(StackPair *sp, const int *arr, t_ChunkInfo *chun
         number = get_number(sp, chunk_info->side);
         if (compare(number, pivot, chunk_info->side))
             push(sp, chunk_info->side);
-        rotate(sp, chunk_info->side);
+        else
+            rotate(sp, chunk_info->side);
         ++i;
     }
 }

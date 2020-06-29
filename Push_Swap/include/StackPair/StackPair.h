@@ -31,9 +31,9 @@ int         stackPairPeek(StackPair *sp, e_StackSide side, int *res);
 int         stackPairPeekFew(StackPair *sp, e_StackSide side, int *buffer, int n);
 int         stackPairSwap(StackPair *sp, e_StackSide side);
 
-void    sa_cmd(StackPair *sp);
-void    sb_cmd(StackPair *sp);
-void    ss_cmd(StackPair *sp);
+int     sa_cmd(StackPair *sp);
+int     sb_cmd(StackPair *sp);
+int     ss_cmd(StackPair *sp);
 void    pa_cmd(StackPair *sp);
 void    pb_cmd(StackPair *sp);
 void    ra_cmd(StackPair *sp);
