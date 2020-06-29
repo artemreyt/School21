@@ -18,7 +18,7 @@ void    radix_sort(int *arr, int n);
  * m - max size of chunk to sort by selection sort
  * (optimization)
  * if m == 0, then all chunks will be sorted
- * by quick sort algorithm
+ * by quick push_swap_sort algorithm
  */
 void    quick_sort(int *arr, int n, int m);
 

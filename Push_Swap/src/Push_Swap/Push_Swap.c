@@ -32,7 +32,7 @@ void        push_swap(StackPair *sp, int *arr, t_ChunkInfo *chunk)
     t_ChunkInfo right_chunk;
 
     if (chunk->length <= 2)
-        sort(sp, arr, chunk);
+        push_swap_sort(sp, arr, chunk);
     else
     {
         push_swap_partition(sp, arr, chunk);

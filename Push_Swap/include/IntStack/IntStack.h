@@ -7,12 +7,10 @@
 
 struct  s_IntStack
 {
-    IntNode_t     *head;
-    IntNode_t     *tail;
+    IntNode_t   *head;
+    IntNode_t   *tail;
     size_t      size;
 };
-
-
 typedef struct s_IntStack   IntStack;
 
 void        intStackInit(IntStack *stack);
@@ -24,9 +22,10 @@ inline int  intStackGetSize(IntStack *stack);
 /*
  * Special extensions for project Push_Swap
  */
-int    intStackShiftUp(IntStack *stack);
-int    intStackShiftDown(IntStack *stack);
-int    intStackSwap(IntStack *stack);
+int         intStackShiftUp(IntStack *stack);
+int         intStackShiftDown(IntStack *stack);
+int         intStackSwap(IntStack *stack);
+int         intStackPeekFew(IntStack *stack, int *buffer, int n);
 
 
 

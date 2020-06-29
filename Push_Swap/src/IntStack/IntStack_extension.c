@@ -29,3 +29,22 @@ int    intStackSwap(IntStack *stack)
     stack->head->next->value = buf;
     return (1);
 }
+
+int    intStackPeekFew(IntStack *stack, int *buffer, int n)
+{
+    int         i;
+    IntNode_t   *current;
+
+    if (stack->size < n)
+        return (0);
+    i = 0;
+    current = stack->head;
+    while (i < n)
+    {
+        buffer[i] = current->value;
+        current = current->next;
+        ++i;
+    }
+    return (1);
+}
+

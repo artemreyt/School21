@@ -3,13 +3,6 @@
 
 #include "StackPair.h"
 
-enum    e_StackSide
-{
-    A_STACK,
-    B_STACK
-};
-typedef enum e_StackSide    e_StackSide;
-
 struct  s_ChunkInfo
 {
     e_StackSide side;
@@ -20,6 +13,7 @@ typedef struct s_ChunkInfo  t_ChunkInfo;
 
 void    launch_push_swap(int *arr, int n);
 void    push_swap(StackPair *sp, int *arr, t_ChunkInfo *chunk_info);
-void    push_swap_partition(StackPair *sp, int *arr, t_ChunkInfo *chunk_info);
+void    push_swap_partition(StackPair *sp, const int *arr, t_ChunkInfo *chunk_info);
+void    push_swap_sort(StackPair *sp, int *arr, t_ChunkInfo *chunk_info);
 
 #endif
