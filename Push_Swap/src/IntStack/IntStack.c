@@ -68,7 +68,7 @@ int     intStackPeek(IntStack *stack, int *value)
 
 void        intStackFree(IntStack *stack)
 {
-    while (stack->size)
-        intStackPop(stack, NULL);
+    while (intStackPop(stack, NULL))
+        continue ;
 }
 

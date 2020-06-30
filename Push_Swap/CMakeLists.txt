@@ -23,3 +23,8 @@ aux_source_directory(src/Push_Swap PUSH_SWAP_SRC)
 add_executable(push_swap "${PUSH_SWAP_SRC}")
 target_link_libraries(push_swap StackPair)
 target_include_directories(push_swap PRIVATE include/Push_Swap)
+
+aux_source_directory(src/Checker CHECKER_SRC)
+add_executable(checker "${CHECKER_SRC}")
+target_link_libraries(checker StackPair)
+target_include_directories(checker PRIVATE include/Checker)
