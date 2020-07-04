@@ -7,7 +7,7 @@ int    sa_cmd(StackPair *sp)
 
     res = intStackSwap(sp->stack_a);
     if (res)
-        stackPairLog(sp, SB_MSG);
+        stackPairLog(sp, SA_MSG);
     return (res);
 }
 

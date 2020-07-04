@@ -1,29 +1,18 @@
 #include "Push_Swap.h"
+#include "checker.h"
 #include "libft.h"
-
-static int     *scan_numbers(int argc, char **argv)
-{
-    int *arr;
-    int i;
-
-    arr = (int *)malloc((argc - 1) * sizeof(*arr));
-    if (arr == NULL)
-        exit(EXIT_FAILURE);
-    i = 1;
-    while (i < argc)
-    {
-        arr[i - 1] = ft_atoi(argv[i]);
-        ++i;
-    }
-    return (arr);
-}
-
 
 int main(int argc, char **argv)
 {
     int *arr;
+    int size;
 
-    arr = scan_numbers(argc, argv);
-    launch_push_swap(arr, argc - 1);
+    if (!checker_parse_arguments(argc, argv, &arr, &size))
+    {
+        ft_putendl(ERROR_MSG);
+        return (1);
+    }
+    launch_push_swap(arr, size);
+    free(arr);
     return (0);
 }

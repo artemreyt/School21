@@ -23,9 +23,9 @@ typedef enum e_StackSide    e_StackSide;
  * if log_fd < 0, then logging not triggered
  *
  */
-void        stackPairInit(StackPair *sp, int log_fd);
 StackPair   *stackPairCreate(int *arr, size_t n, int log_fd);
-void        stackPairFree(StackPair *sp);
+void        stackPairFree(StackPair **sp);
+void        stackPairInit(StackPair *sp, int log_fd);
 void        stackPairLog(StackPair *sp, const char *msg);
 
 int         stackPairPeek(StackPair *sp, e_StackSide side, int *res);

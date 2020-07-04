@@ -13,11 +13,13 @@ struct  s_IntStack
 };
 typedef struct s_IntStack   IntStack;
 
+IntStack    *intStackCreate();
+void        intStackFree(IntStack **stack);
+
 void        intStackInit(IntStack *stack);
 void        intStackPush(IntStack *stack, int value);
 int         intStackPop(IntStack *stack, int *pop_value);
 int         intStackPeek(IntStack *stack, int *value);
-void        intStackFree(IntStack *stack);
 
 /*
  * Special extensions for project Push_Swap

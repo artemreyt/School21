@@ -54,21 +54,19 @@ static int  checker(StackPair *sp, int size, int fd)
 
 int         launch_checker(int argc, char **argv)
 {
-    int         i;
     int         *arr;
     int         retv;
+    int         size;
     StackPair   *sp;
 
-    arr = (int *)malloc((argc - 1) * sizeof(int));
-    i = 1;
-    while (i < argc)
+    if (!checker_parse_arguments(argc, argv, &arr, &size))
+        retv = ERROR_CODE;
+    else
     {
-        arr[i - 1] = ft_atoi(argv[i]);
-        ++i;
+        sp = stackPairCreate(arr, size, -1);
+        retv = checker(sp, argc - 1, STDIN_FILENO);
+        stackPairFree(&sp);
+        free(arr);
     }
-    sp = stackPairCreate(arr, argc - 1, -1);
-    retv = checker(sp, argc - 1, STDIN_FILENO);
-    stackPairFree(sp);
-    free(arr);
     return retv;
 }

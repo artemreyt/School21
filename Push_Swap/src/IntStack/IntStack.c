@@ -29,6 +29,7 @@ void    intStackPush(IntStack *stack, int value)
     else
     {
         new->next = stack->head;
+        new->prev = stack->tail;
         stack->head->prev = new;
         stack->tail->next = new;
         stack->head = new;
@@ -64,11 +65,5 @@ int     intStackPeek(IntStack *stack, int *value)
     if (value)
         *value = stack->head->value;
     return (1);
-}
-
-void        intStackFree(IntStack *stack)
-{
-    while (intStackPop(stack, NULL))
-        continue ;
 }
 

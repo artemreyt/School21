@@ -7,11 +7,6 @@ int main(int argc, char **argv)
 
     if (argc == 1)
         return (0);
-    if (!check_valid_arguments(argc, argv))
-    {
-        ft_putendl(ERROR_MSG);
-        return (ERROR_CODE);
-    }
     ret_code = launch_checker(argc, argv);
     if (ret_code == OK_CODE)
         ft_putendl(OK_MSG);

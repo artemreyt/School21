@@ -5,16 +5,14 @@
 
 void    stackPairInit(StackPair *sp, int log_fd)
 {
-    sp->stack_a = (IntStack *)malloc(sizeof(*sp->stack_a));
-    sp->stack_b = (IntStack *)malloc(sizeof(*sp->stack_b));
+    sp->stack_a = intStackCreate();
+    sp->stack_b = intStackCreate();
     if (!sp->stack_a || !sp->stack_b)
     {
-        free(sp->stack_a);
-        free(sp->stack_b);
+        intStackFree(&sp->stack_a);
+        intStackFree(&sp->stack_b);
         return ;
     }
-    intStackInit(sp->stack_a);
-    intStackInit(sp->stack_b);
     if (log_fd < 0)
         sp->log_fd = -1;
     else
@@ -34,12 +32,14 @@ StackPair   *stackPairCreate(int *arr, size_t n,  int log_fd)
     return (sp);
 }
 
-void        stackPairFree(StackPair *sp)
+void        stackPairFree(StackPair **sp)
 {
-    intStackFree(sp->stack_a);
-    intStackFree(sp->stack_b);
-    free(sp->stack_a);
-    free(sp->stack_b);
+    if (!sp || !(*sp))
+        return ;
+    intStackFree(&(*sp)->stack_a);
+    intStackFree(&(*sp)->stack_b);
+    free(*sp);
+    *sp = NULL;
 }
 
 void        stackPairLog(StackPair *sp, const char *msg)

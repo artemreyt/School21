@@ -14,7 +14,7 @@ void        launch_push_swap(int *arr, int n)
     chunkInfo.length = n;
     chunkInfo.side = A_STACK;
     push_swap(sp, arr, &chunkInfo);
-    stackPairFree(sp);
+    stackPairFree(&sp);
 }
 
 static void init_chunks(t_ChunkInfo *current, t_ChunkInfo *left, t_ChunkInfo *right)

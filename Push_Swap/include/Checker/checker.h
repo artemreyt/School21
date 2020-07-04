@@ -9,7 +9,9 @@
 #define KO_MSG      "KO"
 #define ERROR_MSG   "Error"
 
-int     check_valid_arguments(int argc, char **argv);
+#define WHITESPACES " \t\n\r"
+
+int     checker_parse_arguments(int argc, char **argv, int **arr, int *size);
 int     launch_checker(int argc, char **argv);
 
 #endif
