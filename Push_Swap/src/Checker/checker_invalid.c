@@ -6,12 +6,12 @@
 static int  check_duplicates(int *arr, int n)
 {
     int i;
-    int arr_copy[n];
+    int *arr_copy;
     int ret_val;
 
-//    arr_copy = (int *)malloc(sizeof(*arr) * n);
-//    if (!arr_copy)
-//        return (0);
+    arr_copy = (int *)malloc(sizeof(*arr) * n);
+    if (!arr_copy)
+        return (0);
     ft_memcpy(arr_copy, arr, sizeof(*arr) * n);
     radix_sort(arr_copy, n);
     i = 0;
@@ -25,7 +25,7 @@ static int  check_duplicates(int *arr, int n)
         }
         ++i;
     }
-//    free(arr_copy);
+    free(arr_copy);
     return (ret_val);
 }
 
@@ -47,6 +47,8 @@ static int  count_arguments(int argc, char **argv)
         while (argv[i][arg_i])
         {
             while (ft_strchr(WHITESPACES, argv[i][arg_i]))
+                ++arg_i;
+            if (argv[i][arg_i] == '+' || argv[i][arg_i] == '-')
                 ++arg_i;
             if (ft_isdigit(argv[i][arg_i]))
             {
@@ -79,15 +81,12 @@ static int  parse_arguments(int argc, char **argv, int *arr)
         str = argv[i];
         while (*str)
         {
-            while (!ft_isdigit(*str))
+            while (ft_strchr(WHITESPACES, *str))
                 ++str;
             if (*str)
             {
                 if (!ft_atoi_safe(str, &str, &arr[i_arr++]))
-                {
-                    free(arr);
                     return (0);
-                }
             }
         }
         ++i;
