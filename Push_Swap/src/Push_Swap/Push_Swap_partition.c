@@ -19,12 +19,30 @@ static int  compare(int number, int pivot, e_StackSide side)
     return number >= pivot;
 }
 
-static void rotate(StackPair *sp, e_StackSide side)
+static void rotate(StackPair *sp, e_StackSide side, int num)
 {
-    if (side == A_STACK)
-        ra_cmd(sp);
+    void    (*rotator)(StackPair *);
+
+    if (num > 0)
+    {
+        if (side == A_STACK)
+            rotator = ra_cmd;
+        else
+            rotator = rb_cmd;
+    }
     else
-        rb_cmd(sp);
+    {
+        if (side == A_STACK)
+            rotator = rra_cmd;
+        else
+            rotator = rrb_cmd;
+    }
+    num = num < 0 ? -num : num;
+    while (num)
+    {
+        rotator(sp);
+        --num;
+    }
 }
 
 static void push(StackPair *sp, e_StackSide side)
@@ -38,18 +56,23 @@ static void push(StackPair *sp, e_StackSide side)
 void        push_swap_partition(StackPair *sp, const int *arr, t_ChunkInfo *chunk_info)
 {
     int i;
+    int rotate_num;
     int number;
     int pivot;
 
     pivot = arr[chunk_info->start_index + chunk_info->length / 2];
     i = 0;
-    while (i < chunk_info->length)
+    rotate_num = 0;
+    while (i++ < chunk_info->length)
     {
         number = get_number(sp, chunk_info->side);
         if (compare(number, pivot, chunk_info->side))
             push(sp, chunk_info->side);
         else
-            rotate(sp, chunk_info->side);
-        ++i;
+        {
+            rotate(sp, chunk_info->side, +1);
+            ++rotate_num;
+        }
     }
+    rotate(sp, chunk_info->side, -rotate_num);
 }
