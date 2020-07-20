@@ -1,6 +1,7 @@
 #include "Push_Swap.h"
 #include "StackPair.h"
 #include "ft_algorithms.h"
+#include "libft.h"
 #include <unistd.h>
 
 void        launch_push_swap(int *arr, int n)

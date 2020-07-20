@@ -9,4 +9,4 @@ aux_source_directory(algorithms_src ALGORITHM_SRC)
 add_library(ft "${LIBFT_SRC}" "${PRINTF_SRC}" "${ALGORITHM_SRC}")
 
 target_include_directories(ft PUBLIC ./)
-target_include_directories(ft PRIVATE printf_includes)
+target_include_directories(ft PUBLIC printf_includes/)
