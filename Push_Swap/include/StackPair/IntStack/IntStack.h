@@ -9,7 +9,7 @@ struct  s_IntStack
 {
     IntNode_t   *head;
     IntNode_t   *tail;
-    size_t      size;
+    int         size;
 };
 typedef struct s_IntStack   IntStack;
 

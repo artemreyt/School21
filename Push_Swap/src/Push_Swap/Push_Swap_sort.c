@@ -2,7 +2,7 @@
 #include "StackPair.h"
 #include <stdlib.h>
 
-void    push_swap_sort(StackPair *sp, int *arr, t_ChunkInfo *chunk_info)
+void    push_swap_sort(StackPair *sp, t_ChunkInfo *chunk_info)
 {
     int buffer[2];
     int i;

@@ -5,11 +5,11 @@ project(Push_Swap)
 add_subdirectory(Libft)
 link_libraries(ft)
 
-add_library(IntStack    src/IntStack/IntNode.c
-                        src/IntStack/IntStack.c
-                        src/IntStack/IntStack_extension.c
-                        src/IntStack/IntStack_create_free.c)
-target_include_directories(IntStack PUBLIC include/IntStack)
+add_library(IntStack src/StackPair/IntStack/IntNode.c
+        src/StackPair/IntStack/IntStack.c
+        src/StackPair/IntStack/IntStack_extension.c
+        src/StackPair/IntStack/IntStack_create_free.c)
+target_include_directories(IntStack PUBLIC include/StackPair/IntStack)
 
 add_library(StackPair   src/StackPair/StackPair.c
                         src/StackPair/Swap_cmds.c

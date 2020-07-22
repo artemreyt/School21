@@ -37,6 +37,8 @@ static int  checker(StackPair *sp, int size, int fd)
 {
     char *cmd;
 
+    fd = 0; // TODO: read from file
+
     while (get_next_line(STDIN_FILENO, &cmd) > 0)
     {
         if (!execute_command(sp, cmd))

@@ -14,7 +14,7 @@ typedef struct s_ChunkInfo  t_ChunkInfo;
 void    launch_push_swap(int *arr, int n);
 void    push_swap(StackPair *sp, int *arr, t_ChunkInfo *chunk_info);
 void    push_swap_partition(StackPair *sp, const int *arr, t_ChunkInfo *chunk_info);
-void    push_swap_sort(StackPair *sp, int *arr, t_ChunkInfo *chunk_info);
+void    push_swap_sort(StackPair *sp, t_ChunkInfo *chunk_info);
 
 /*
  * optimization part

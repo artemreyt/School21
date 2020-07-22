@@ -57,7 +57,7 @@ void        push_swap(StackPair *sp, int *arr, t_ChunkInfo *chunk)
     else if (res < 0)
         exit(EXIT_FAILURE);
     if (chunk->length <= 2)
-        push_swap_sort(sp, arr, chunk);
+        push_swap_sort(sp, chunk);
     else
     {
         push_swap_partition(sp, arr, chunk);

@@ -96,8 +96,6 @@ static int  parse_arguments(int argc, char **argv, int *arr)
 
 int         checker_parse_arguments(int argc, char **argv, int **arr, int *size)
 {
-    int i;
-
     *size = count_arguments(argc, argv);
     if (*size == -1)
         return (0);
