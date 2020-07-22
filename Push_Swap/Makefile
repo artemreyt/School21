@@ -77,12 +77,12 @@ $(CHECKER_EXEC_NAME): $(LIBS_DIR)/$(CHECKER_LIB_NAME) $(LIBS_DIR)/$(STACK_PAIR_L
 	$(CC) $(CFLAGS) $^ -o $@
 	@ make "Executable $@ built".success_msg
 
-$(LIBS_DIR)/$(CHECKER_LIB_NAME): $(CHECKER_LIB_OBJ) $(LIBS_DIR)
+$(LIBS_DIR)/$(CHECKER_LIB_NAME): $(CHECKER_LIB_OBJ) | $(LIBS_DIR)
 	@ make "Building $@".prepare_msg
 	ar crs $(LIBS_DIR)/$(CHECKER_LIB_NAME) $(CHECKER_LIB_OBJ)
 	@ make "$@ built".success_msg
 
-$(CHECKER_OBJ_DIR)/%.o: $(CHECKER_LIB_SRC_DIR)/%.c $(CHECKER_OBJ_DIR)
+$(CHECKER_OBJ_DIR)/%.o: $(CHECKER_LIB_SRC_DIR)/%.c | $(CHECKER_OBJ_DIR)
 	$(CC) -c $(CFLAGS) -I $(CHECKER_LIB_INCLUDE_DIR) -I $(STACK_PAIR_INCLUDE_DIR) \
 	-I $(LIBFT_INCLUDE_DIR) -I $(INT_STACK_INCLUDE_DIR) $< -o $@
 
@@ -96,11 +96,11 @@ $(LIBS_DIR)/$(STACK_PAIR_LIB_NAME): $(STACK_PAIR_OBJ) $(INT_STACK_OBJ) | $(LIBS_
 	ar crs $@ $^
 	@ make "$@ built".success_msg
 
-$(STACK_PAIR_OBJ_DIR)/%.o: $(STACK_PAIR_SRC_DIR)/%.c $(STACK_PAIR_OBJ_DIR)
+$(STACK_PAIR_OBJ_DIR)/%.o: $(STACK_PAIR_SRC_DIR)/%.c | $(STACK_PAIR_OBJ_DIR)
 	$(CC) -c $(CFLAGS) -I $(STACK_PAIR_INCLUDE_DIR) -I $(INT_STACK_INCLUDE_DIR) \
 	-I $(LIBFT_INCLUDE_DIR) $< -o $@
 
-$(INT_STACK_OBJ_DIR)/%.o: $(INT_STACK_SRC_DIR)/%.c $(INT_STACK_OBJ_DIR)
+$(INT_STACK_OBJ_DIR)/%.o: $(INT_STACK_SRC_DIR)/%.c | $(INT_STACK_OBJ_DIR)
 	$(CC) -c $(CFLAGS) -I $(INT_STACK_INCLUDE_DIR) -I $(LIBFT_INCLUDE_DIR) $< -o $@
 
 # -------------- Stack Pair targets --------------- #
@@ -113,7 +113,7 @@ $(PUSH_SWAP_EXEC_NAME): $(PUSH_SWAP_OBJ) $(LIBS_DIR)/$(CHECKER_LIB_NAME) $(LIBS_
 	$(CC) $(CFLAGS) $^ -o $@
 	@ make "Executable $@ built".success_msg
 
-$(PUSH_SWAP_OBJ_DIR)/%.o: $(PUSH_SWAP_SRC_DIR)/%.c $(PUSH_SWAP_OBJ_DIR)
+$(PUSH_SWAP_OBJ_DIR)/%.o: $(PUSH_SWAP_SRC_DIR)/%.c | $(PUSH_SWAP_OBJ_DIR)
 	$(CC) -c $(CFLAGS) -I $(PUSH_SWAP_INCLUDE_DIR) -I $(CHECKER_LIB_INCLUDE_DIR) -I $(LIBFT_INCLUDE_DIR) \
 		-I $(STACK_PAIR_INCLUDE_DIR) -I $(INT_STACK_INCLUDE_DIR) -I $(LIBFT_INCLUDE_DIR)/printf_includes \
 		$< -o $@
@@ -142,10 +142,10 @@ $(LIBS_DIR)/$(LIBFT_NAME):
 # -------------- Utils --------------- #
 
 clean:
-	@ make -C $(LIBFT_DIR) clean
-	@ rm -rf $(CHECKER_OBJ_DIR) $(STACK_PAIR_OBJ_DIR) $(INT_STACK_OBJ_DIR) \
-		$(PUSH_SWAP_OBJ_DIR)
-	@ rm -rf $(LIBS_DIR)
+	make -C $(LIBFT_DIR) clean
+	rm -f $(CHECKER_LIB_OBJ) $(CHECKER_EXEC_OBJ) $(STACK_PAIR_OBJ) $(INT_STACK_OBJ) \
+		$(PUSH_SWAP_OBJ)
+	rm -rf $(LIBS_DIR)
 
 fclean: clean
 	@ rm -f $(CHECKER_EXEC_NAME) $(PUSH_SWAP_EXEC_NAME)
