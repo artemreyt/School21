@@ -196,3 +196,6 @@ Temporary Items
 .apdisk
 
 # End of https://www.toptal.com/developers/gitignore/api/c,macos,clion,cmake
+
+*.sh
+*.idea

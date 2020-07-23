@@ -1,9 +1,9 @@
 #include "checker.h"
 #include "libft.h"
-#include "StackPair.h"
+#include "stack_pair.h"
 #include "get_next_line.h"
 
-static int  execute_command(StackPair *sp, char *cmd)
+static int  execute_command(t_stack_pair *sp, char *cmd)
 {
     if (!ft_strcmp(cmd, SA_MSG))
         sa_cmd(sp);
@@ -33,7 +33,7 @@ static int  execute_command(StackPair *sp, char *cmd)
 }
 
 
-static int  checker(StackPair *sp, int size, int fd)
+static int  checker(t_stack_pair *sp, int size, int fd)
 {
     char *cmd;
 
@@ -48,7 +48,7 @@ static int  checker(StackPair *sp, int size, int fd)
         }
         free(cmd);
     }
-    if (!stackPairCheckOrder(sp, A_STACK, size) || sp->stack_b->size)
+    if (!stack_pair_check_order(sp, A_STACK, size) || sp->stack_b->size)
         return (KO_CODE);
     return (OK_CODE);
 }
@@ -59,15 +59,15 @@ int         launch_checker(int argc, char **argv)
     int         *arr;
     int         retv;
     int         size;
-    StackPair   *sp;
+    t_stack_pair   *sp;
 
     if (!checker_parse_arguments(argc, argv, &arr, &size))
         retv = ERROR_CODE;
     else
     {
-        sp = stackPairCreate(arr, size, -1);
+        sp = stack_pair_сreate(arr, size, -1);
         retv = checker(sp, argc - 1, STDIN_FILENO);
-        stackPairFree(&sp);
+        stack_pair_free(&sp);
         free(arr);
     }
     return retv;

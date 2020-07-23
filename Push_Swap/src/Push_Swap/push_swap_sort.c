@@ -1,8 +1,8 @@
-#include "Push_Swap.h"
-#include "StackPair.h"
+#include "push_swap.h"
+#include "stack_pair.h"
 #include <stdlib.h>
 
-void    push_swap_sort(StackPair *sp, t_ChunkInfo *chunk_info)
+void    push_swap_sort(t_stack_pair *sp, t_chunk_info *chunk_info)
 {
     int buffer[2];
     int i;
@@ -11,12 +11,12 @@ void    push_swap_sort(StackPair *sp, t_ChunkInfo *chunk_info)
         exit(EXIT_FAILURE);
     if (chunk_info->length == 2)
     {
-        if (!stackPairPeekFew(sp, chunk_info->side, buffer, 2))
+        if (!stack_pair_peek_few(sp, chunk_info->side, buffer, 2))
             exit(EXIT_FAILURE);
         if ((chunk_info->side == A_STACK && buffer[0] > buffer[1]) ||
                 (chunk_info->side == B_STACK && buffer[0] < buffer[1]))
         {
-            if (!stackPairSwap(sp, chunk_info->side))
+            if (!stack_pair_swap(sp, chunk_info->side))
                 exit(EXIT_FAILURE);
         }
     }

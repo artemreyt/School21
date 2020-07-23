@@ -1,22 +1,22 @@
-#include "IntStack.h"
+#include "int_stack.h"
 #include <stdlib.h>
 
-IntStack    *intStackCreate()
+t_int_stack    *intStackCreate()
 {
-    IntStack *stack;
+    t_int_stack *stack;
 
-    stack = (IntStack *)malloc(sizeof(IntStack));
+    stack = (t_int_stack *)malloc(sizeof(t_int_stack));
     if (stack == NULL)
         return NULL;
-    intStackInit(stack);
+    int_stack_init(stack);
     return (stack);
 }
 
-void        intStackFree(IntStack **stack)
+void        int_stack_free(t_int_stack **stack)
 {
     if (!stack || !(*stack))
         return ;
-    while (intStackPop(*stack, NULL))
+    while (int_stack_pop(*stack, NULL))
         continue ;
     free(*stack);
     *stack = NULL;

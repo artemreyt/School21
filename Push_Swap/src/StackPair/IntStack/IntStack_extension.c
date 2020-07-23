@@ -1,6 +1,6 @@
-#include "IntStack.h"
+#include "int_stack.h"
 
-int    intStackShiftUp(IntStack *stack)
+int    int_stack_shift_up(t_int_stack *stack)
 {
     if (stack->size <= 1)
         return (0);
@@ -9,7 +9,7 @@ int    intStackShiftUp(IntStack *stack)
     return (1);
 }
 
-int    intStackShiftDown(IntStack *stack)
+int    int_stack_shift_down(t_int_stack *stack)
 {
     if (stack->size <= 1)
         return (0);
@@ -18,7 +18,7 @@ int    intStackShiftDown(IntStack *stack)
     return (1);
 }
 
-int    intStackSwap(IntStack *stack)
+int    int_stack_swap(t_int_stack *stack)
 {
     int buf;
 
@@ -30,10 +30,10 @@ int    intStackSwap(IntStack *stack)
     return (1);
 }
 
-int    intStackPeekFew(IntStack *stack, int *buffer, int n)
+int    int_stack_peek_few(t_int_stack *stack, int *buffer, int n)
 {
     int         i;
-    IntNode_t   *current;
+    t_int_node   *current;
 
     if (stack->size < n)
         return (0);
@@ -48,9 +48,9 @@ int    intStackPeekFew(IntStack *stack, int *buffer, int n)
     return (1);
 }
 
-int         intStackCheckOrder(IntStack *stack, int n, int ascending)
+int         int_stack_check_order(t_int_stack *stack, int n, int ascending)
 {
-    IntNode_t *current;
+    t_int_node *current;
 
     if (n < 0 || stack->size < n)
         return (-1);

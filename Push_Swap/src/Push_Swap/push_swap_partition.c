@@ -1,28 +1,28 @@
-#include "Push_Swap.h"
-#include "StackPair.h"
-#include "IntStack.h"
+#include "push_swap.h"
+#include "stack_pair.h"
+#include "int_stack.h"
 #include <stdlib.h>
 #include "ft_printf.h"
 
-static int  get_number(StackPair *sp, e_StackSide side)
+static int  get_number(t_stack_pair *sp, t_stack_side side)
 {
     int     number;
 
-    if (!stackPairPeek(sp, side, &number))
+    if (!stack_pair_peek(sp, side, &number))
         exit(EXIT_FAILURE);
     return number;
 }
 
-static int  compare(int number, int pivot, e_StackSide side)
+static int  compare(int number, int pivot, t_stack_side side)
 {
     if (side == A_STACK)
         return number < pivot;
     return number >= pivot;
 }
 
-static void rotate(StackPair *sp, e_StackSide side, int num)
+static void rotate(t_stack_pair *sp, t_stack_side side, int num)
 {
-    void    (*rotator)(StackPair *);
+    void    (*rotator)(t_stack_pair *);
 
     if (num > 0)
     {
@@ -46,7 +46,7 @@ static void rotate(StackPair *sp, e_StackSide side, int num)
     }
 }
 
-static void push(StackPair *sp, e_StackSide side)
+static void push(t_stack_pair *sp, t_stack_side side)
 {
     if (side == A_STACK)
         pb_cmd(sp);
@@ -54,7 +54,7 @@ static void push(StackPair *sp, e_StackSide side)
         pa_cmd(sp);
 }
 
-void        push_swap_partition(StackPair *sp, const int *arr, t_ChunkInfo *chunk_info)
+void        push_swap_partition(t_stack_pair *sp, const int *arr, t_chunk_info *chunk_info)
 {
     int rotate_num;
     int number;

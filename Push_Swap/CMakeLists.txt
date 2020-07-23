@@ -5,18 +5,18 @@ project(Push_Swap)
 add_subdirectory(Libft)
 link_libraries(ft)
 
-add_library(IntStack src/StackPair/IntStack/IntNode.c
-        src/StackPair/IntStack/IntStack.c
+add_library(IntStack src/StackPair/IntStack/int_node.c
+        src/StackPair/IntStack/int_stack.c
         src/StackPair/IntStack/IntStack_extension.c
         src/StackPair/IntStack/IntStack_create_free.c)
 target_include_directories(IntStack PUBLIC include/StackPair/IntStack)
 
-add_library(StackPair   src/StackPair/StackPair.c
-                        src/StackPair/Swap_cmds.c
-                        src/StackPair/Push_cmds.c
-                        src/StackPair/Rotate_cmds.c
-                        src/StackPair/ReverseRotate_cmds.c
-                        src/StackPair/StackPair_utility.c)
+add_library(StackPair src/StackPair/stack_pair.c
+        src/StackPair/swap_cmds.c
+        src/StackPair/push_cmds.c
+        src/StackPair/rotate_cmds.c
+        src/StackPair/reverse_rotate_cmds.c
+        src/StackPair/stack_pair_utility.c)
 target_include_directories(StackPair PUBLIC include/StackPair)
 target_link_libraries(StackPair IntStack)
 

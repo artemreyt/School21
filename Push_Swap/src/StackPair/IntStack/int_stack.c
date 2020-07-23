@@ -1,8 +1,8 @@
-#include "IntStack.h"
-#include "IntNode.h"
+#include "int_stack.h"
+#include "int_node.h"
 #include <stdlib.h>
 
-void    intStackInit(IntStack *stack)
+void    int_stack_init(t_int_stack *stack)
 {
     if (!stack)
         return ;
@@ -12,13 +12,13 @@ void    intStackInit(IntStack *stack)
 }
 
 
-void    intStackPush(IntStack *stack, int value)
+void    int_stack_push(t_int_stack *stack, int value)
 {
-    IntNode_t *new;
+    t_int_node *new;
 
     if (!stack)
         return ;
-    new = createIntNode(value);
+    new = create_int_node(value);
     if (!new)
         return ;
     if (stack->size == 0)
@@ -37,9 +37,9 @@ void    intStackPush(IntStack *stack, int value)
     ++stack->size;
 }
 
-int     intStackPop(IntStack *stack, int *pop_value)
+int     int_stack_pop(t_int_stack *stack, int *pop_value)
 {
-    IntNode_t *old_head;
+    t_int_node *old_head;
 
     if (!stack || !stack->size)
         return (0);
@@ -58,7 +58,7 @@ int     intStackPop(IntStack *stack, int *pop_value)
     return (1);
 }
 
-int     intStackPeek(IntStack *stack, int *value)
+int     int_stack_peek(t_int_stack *stack, int *value)
 {
     if (!stack || !stack->size)
         return (0);

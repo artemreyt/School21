@@ -1,4 +1,4 @@
-#include "Push_Swap.h"
+#include "push_swap.h"
 #include "checker.h"
 #include "libft.h"
 
