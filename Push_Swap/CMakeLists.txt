@@ -7,8 +7,8 @@ link_libraries(ft)
 
 add_library(IntStack src/StackPair/IntStack/int_node.c
         src/StackPair/IntStack/int_stack.c
-        src/StackPair/IntStack/IntStack_extension.c
-        src/StackPair/IntStack/IntStack_create_free.c)
+        src/StackPair/IntStack/int_stack_extension.c
+        src/StackPair/IntStack/int_stack_create_free.c)
 target_include_directories(IntStack PUBLIC include/StackPair/IntStack)
 
 add_library(StackPair src/StackPair/stack_pair.c
