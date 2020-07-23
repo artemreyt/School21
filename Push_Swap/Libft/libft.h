@@ -6,7 +6,7 @@
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 11:32:21 by creicher          #+#    #+#             */
-/*   Updated: 2019/11/14 17:52:06 by creicher         ###   ########.fr       */
+/*   Updated: 2020/07/23 16:09:27 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_strreverse(char *str);
-int ft_putchar(char c);
+int		ft_putchar(char c);
 void	ft_putstr(const char *str);
 void	ft_putnbr(int n);
 void	*ft_memset(void *b, int c, size_t len);
@@ -67,7 +67,7 @@ char	*ft_strtrim(char const *s);
 char	**ft_strsplit(char const *s, char c);
 char	*ft_itoa(int n);
 void	ft_putendl(char const *s);
-int ft_putchar_fd(char c, int fd);
+int		ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_putendl_fd(char const *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
