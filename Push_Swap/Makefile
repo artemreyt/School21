@@ -67,7 +67,7 @@ CC = gcc
 
 LIBS_DIR = libs
 
-all: $(CHECKER_EXEC_NAME) $(PUSH_SWAP_EXEC_NAME)
+all: $(LIBS_DIR)/$(LIBFT_NAME) $(CHECKER_EXEC_NAME) $(PUSH_SWAP_EXEC_NAME)
 
 
 # -------------- Checker targets ---------------- #
@@ -122,9 +122,9 @@ $(PUSH_SWAP_OBJ_DIR)/%.o: $(PUSH_SWAP_SRC_DIR)/%.c | $(PUSH_SWAP_OBJ_DIR)
 
 
 $(LIBS_DIR):
-	@ mkdir $(LIBS_DIR)
+	mkdir $(LIBS_DIR)
 
-$(LIBS_DIR)/$(LIBFT_NAME):
+$(LIBS_DIR)/$(LIBFT_NAME): $(LIBS_DIR)
 	@ make -C $(LIBFT_DIR)
 	@ mv $(LIBFT_DIR)/$(LIBFT_NAME) $(LIBS_DIR)
 
