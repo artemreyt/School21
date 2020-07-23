@@ -142,10 +142,10 @@ $(LIBS_DIR)/$(LIBFT_NAME): $(LIBS_DIR)
 # -------------- Utils --------------- #
 
 clean:
-	make -C $(LIBFT_DIR) clean
-	rm -f $(CHECKER_LIB_OBJ) $(CHECKER_EXEC_OBJ) $(STACK_PAIR_OBJ) $(INT_STACK_OBJ) \
+	@ make -C $(LIBFT_DIR) clean
+	@ rm -f $(CHECKER_LIB_OBJ) $(CHECKER_EXEC_OBJ) $(STACK_PAIR_OBJ) $(INT_STACK_OBJ) \
 		$(PUSH_SWAP_OBJ)
-	rm -rf $(LIBS_DIR)
+	@ rm -rf $(LIBS_DIR)
 
 fclean: clean
 	@ rm -f $(CHECKER_EXEC_NAME) $(PUSH_SWAP_EXEC_NAME)

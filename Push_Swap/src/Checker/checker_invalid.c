@@ -6,7 +6,7 @@
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 12:14:53 by creicher          #+#    #+#             */
-/*   Updated: 2020/07/23 12:38:14 by creicher         ###   ########.fr       */
+/*   Updated: 2020/07/23 18:22:12 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,25 +48,23 @@ static int	check_duplicates(int *arr, int n)
 
 static int	count_one_argument(char *arg)
 {
-	int arg_i;
 	int count;
 
-	arg_i = 0;
 	count = 0;
-	while (arg[arg_i])
+	while (*arg)
 	{
-		while (ft_strchr(WHITESPACES, arg[arg_i]))
-			++arg_i;
-		if (arg[arg_i] == '+' || arg[arg_i] == '-')
-			++arg_i;
-		if (ft_isdigit(arg[arg_i]))
+		if (*arg == '+' || *arg == '-')
+			++arg;
+		if (ft_isdigit(*arg))
 		{
 			++count;
-			while (ft_isdigit(arg[arg_i]))
-				++arg_i;
+			while (ft_isdigit(*arg))
+				++arg;
 		}
-		else if (arg[arg_i] && !ft_strchr(WHITESPACES, arg[arg_i]))
+		else if (*arg && !ft_strchr(WHITESPACES, *arg))
 			return (-1);
+		while (*arg && ft_strchr(WHITESPACES, *arg))
+			++arg;
 	}
 	return (count);
 }
@@ -108,13 +106,13 @@ static int	parse_arguments(int argc, char **argv, int *arr)
 		str = argv[i];
 		while (*str)
 		{
-			while (ft_strchr(WHITESPACES, *str))
-				++str;
 			if (*str)
 			{
 				if (!ft_atoi_safe(str, &str, &arr[i_arr++]))
 					return (0);
 			}
+			while (*str && ft_strchr(WHITESPACES, *str))
+				++str;
 		}
 		++i;
 	}
