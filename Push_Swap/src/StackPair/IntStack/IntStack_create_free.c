@@ -1,7 +1,7 @@
 #include "int_stack.h"
 #include <stdlib.h>
 
-t_int_stack    *intStackCreate()
+t_int_stack    *int_stack_create()
 {
     t_int_stack *stack;
 

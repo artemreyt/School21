@@ -6,7 +6,7 @@
 /*   By: creicher <creicher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 01:18:21 by creicher          #+#    #+#             */
-/*   Updated: 2020/07/23 01:25:41 by creicher         ###   ########.fr       */
+/*   Updated: 2020/07/23 11:52:41 by creicher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ struct			s_stack_pair
 	t_int_stack	*stack_b;
 	int			log_fd;
 };
-typedef struct	s_stack_pair	t_stack_pair;
+typedef struct s_stack_pair	t_stack_pair;
 
 enum			e_stack_side
 {
@@ -31,11 +31,8 @@ enum			e_stack_side
 typedef enum e_stack_side	t_stack_side;
 
 /*
-	*
-	* if log_fd < 0, then logging not triggered
-	*
+	** if log_fd < 0, then logging not triggered
 */
-
 t_stack_pair	*stack_pair_сreate(int *arr, size_t n, int log_fd);
 void			stack_pair_free(t_stack_pair **sp);
 void			stack_pair_init(t_stack_pair *sp, int log_fd);

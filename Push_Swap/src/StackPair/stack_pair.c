@@ -5,8 +5,8 @@
 
 void    stack_pair_init(t_stack_pair *sp, int log_fd)
 {
-    sp->stack_a = intStackCreate();
-    sp->stack_b = intStackCreate();
+    sp->stack_a = int_stack_create();
+    sp->stack_b = int_stack_create();
     if (!sp->stack_a || !sp->stack_b)
     {
         int_stack_free(&sp->stack_a);
