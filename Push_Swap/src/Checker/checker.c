@@ -79,7 +79,7 @@ int			launch_checker(int argc, char **argv)
 	else
 	{
 		sp = stack_pair_create(arr, size, -1);
-		retv = checker(sp, argc - 1, STDIN_FILENO);
+		retv = checker(sp, size, STDIN_FILENO);
 		stack_pair_free(&sp);
 		free(arr);
 	}
