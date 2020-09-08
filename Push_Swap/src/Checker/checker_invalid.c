@@ -61,7 +61,7 @@ static int	count_one_argument(char *arg)
 			while (ft_isdigit(*arg))
 				++arg;
 		}
-		else if (*arg && !ft_strchr(WHITESPACES, *arg))
+		if (*arg && !ft_strchr(WHITESPACES, *arg))
 			return (-1);
 		while (*arg && ft_strchr(WHITESPACES, *arg))
 			++arg;
