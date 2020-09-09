@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 
 	if (!checker_parse_arguments(argc, argv, &arr, &size))
 	{
-		ft_putendl(ERROR_MSG);
+		ft_putendl_fd(ERROR_MSG, STDERR_FILENO);
 		return (1);
 	}
 	launch_push_swap(arr, size);

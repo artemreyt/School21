@@ -25,8 +25,8 @@ int	main(int argc, char **argv)
 	else if (ret_code == KO_CODE)
 		ft_putendl(KO_MSG);
 	else if (ret_code == ERROR_CODE)
-		ft_putendl(ERROR_MSG);
+		ft_putendl_fd(ERROR_MSG, STDERR_FILENO);
 	else
-		ft_putendl("UNKNOWN RETURN CODE");
+		ft_putendl_fd("UNKNOWN RETURN CODE", STDERR_FILENO);
 	return (ret_code);
 }
