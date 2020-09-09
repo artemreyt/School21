@@ -1,10 +1,10 @@
-# ------------------ Libft ---------------------#
+# ------------------ Libft --------------------- #
 
 LIBFT_DIR = Libft
 LIBFT_NAME = libft.a
 LIBFT_INCLUDE_DIR = $(LIBFT_DIR)
 
-# ------------------ Libft ---------------------#
+# ------------------ Libft --------------------- #
 
 # ------------------ StackPair library -------------------- #
 
@@ -86,6 +86,9 @@ $(CHECKER_OBJ_DIR)/%.o: $(CHECKER_LIB_SRC_DIR)/%.c | $(CHECKER_OBJ_DIR)
 	$(CC) -c $(CFLAGS) -I $(CHECKER_LIB_INCLUDE_DIR) -I $(STACK_PAIR_INCLUDE_DIR) \
 	-I $(LIBFT_INCLUDE_DIR) -I $(INT_STACK_INCLUDE_DIR) $< -o $@
 
+$(CHECKER_LIB_OBJ): | $(CHECKER_OBJ_DIR)
+$(CHECKER_EXEC_OBJ): | $(CHECKER_OBJ_DIR)
+
 # -------------- Checker targets ---------------- #
 
 
@@ -96,12 +99,16 @@ $(LIBS_DIR)/$(STACK_PAIR_LIB_NAME): $(STACK_PAIR_OBJ) $(INT_STACK_OBJ) | $(LIBS_
 	ar crs $@ $^
 	@ make "$@ built".success_msg
 
-$(STACK_PAIR_OBJ_DIR)/%.o: $(STACK_PAIR_SRC_DIR)/%.c | $(STACK_PAIR_OBJ_DIR)
+$(STACK_PAIR_OBJ_DIR)/%.o: $(STACK_PAIR_SRC_DIR)/%.c
 	$(CC) -c $(CFLAGS) -I $(STACK_PAIR_INCLUDE_DIR) -I $(INT_STACK_INCLUDE_DIR) \
 	-I $(LIBFT_INCLUDE_DIR) $< -o $@
 
-$(INT_STACK_OBJ_DIR)/%.o: $(INT_STACK_SRC_DIR)/%.c | $(INT_STACK_OBJ_DIR)
+$(INT_STACK_OBJ_DIR)/%.o: $(INT_STACK_SRC_DIR)/%.c
 	$(CC) -c $(CFLAGS) -I $(INT_STACK_INCLUDE_DIR) -I $(LIBFT_INCLUDE_DIR) $< -o $@
+
+$(STACK_PAIR_OBJ): | $(STACK_PAIR_OBJ_DIR)
+
+$(INT_STACK_OBJ): | $(INT_STACK_OBJ_DIR)
 
 # -------------- Stack Pair targets --------------- #
 
@@ -113,10 +120,12 @@ $(PUSH_SWAP_EXEC_NAME): $(PUSH_SWAP_OBJ) $(LIBS_DIR)/$(CHECKER_LIB_NAME) $(LIBS_
 	$(CC) $(CFLAGS) $^ -o $@
 	@ make "Executable $@ built".success_msg
 
-$(PUSH_SWAP_OBJ_DIR)/%.o: $(PUSH_SWAP_SRC_DIR)/%.c | $(PUSH_SWAP_OBJ_DIR)
+$(PUSH_SWAP_OBJ_DIR)/%.o: $(PUSH_SWAP_SRC_DIR)/%.c
 	$(CC) -c $(CFLAGS) -I $(PUSH_SWAP_INCLUDE_DIR) -I $(CHECKER_LIB_INCLUDE_DIR) -I $(LIBFT_INCLUDE_DIR) \
 		-I $(STACK_PAIR_INCLUDE_DIR) -I $(INT_STACK_INCLUDE_DIR) -I $(LIBFT_INCLUDE_DIR)/printf_includes \
 		$< -o $@
+
+$(PUSH_SWAP_OBJ): | $(PUSH_SWAP_OBJ_DIR)
 
 # -------------- Push_Swap targets --------------- #
 
@@ -143,8 +152,8 @@ $(LIBS_DIR)/$(LIBFT_NAME): $(LIBS_DIR)
 
 clean:
 	@ make -C $(LIBFT_DIR) clean
-	@ rm -f $(CHECKER_LIB_OBJ) $(CHECKER_EXEC_OBJ) $(STACK_PAIR_OBJ) $(INT_STACK_OBJ) \
-		$(PUSH_SWAP_OBJ)
+	@ rm -rf $(CHECKER_OBJ_DIR) $(STACK_PAIR_OBJ_DIR) $(INT_STACK_OBJ_DIR) \
+		$(PUSH_SWAP_OBJ_DIR)
 	@ rm -rf $(LIBS_DIR)
 
 fclean: clean
