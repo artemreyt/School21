@@ -104,6 +104,8 @@ static int	parse_arguments(int argc, char **argv, int *arr)
 	while (i < argc)
 	{
 		str = argv[i];
+		while (*str && ft_strchr(WHITESPACES, *str))
+			++str;
 		while (*str)
 		{
 			if (*str)
